@@ -23,11 +23,11 @@ void execution( int low, int high){
   while(!isCorrect){
     print("Please enter your guessed number : ");
     int? guessedNum = int.parse(stdin.readLineSync()!);
-    guess(guessedNum);
+    isCorrect = guess(guessedNum,generateRandom);
   }
 }
 
-void guess(int guess){
+bool guess(int guess,int randomNumber){
 
 }
 
