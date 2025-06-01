@@ -25,11 +25,19 @@ void execution( int low, int high){
     int? guessedNum = int.parse(stdin.readLineSync()!);
     isCorrect = guess(guessedNum,generateRandom);
   }
-
-  print("Guessed the correct number, Loop Ends");
 }
 
 bool guess(int guess,int randomNumber){
-  return guess == randomNumber ? true : false ;
+  if(guess == randomNumber){
+    print("Correct, Program Ends");
+    return true;
+  }else if( guess < randomNumber){
+    print("Number is too low");
+    return false;
+  }else{
+    print("Number is too high");
+    return false;
+  }
+  // return guess == randomNumber ? true : false ;
 }
 
