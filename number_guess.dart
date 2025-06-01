@@ -3,6 +3,7 @@
 // The game continues after user guess the corrects number
 
 import 'dart:io';
+import 'dart:math';
 
 void main(){
   print("Enter Range ( Low ) : ");
@@ -11,9 +12,17 @@ void main(){
   print("Enter Range ( High ) : ");
   int? high = int.parse(stdin.readLineSync()!); // stdin.readLineSync()! means this will be accepting a value
 
+  execution(low,high);
 }
 
-void execution(int low, int high){
+void execution( int low, int high){
+  bool isCorrect = false;
 
+  int generateRandom = Random().nextInt(high) + low; // Range x >= low ( + low ) and x<= high
+
+  while(!isCorrect){
+    print("Please enter your guessed number : ");
+    
+  }
 }
 
