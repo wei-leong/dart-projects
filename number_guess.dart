@@ -28,6 +28,6 @@ void execution( int low, int high){
 }
 
 bool guess(int guess,int randomNumber){
-
+  return guess == randomNumber ? true : false ;
 }
 
