@@ -22,7 +22,12 @@ void execution( int low, int high){
 
   while(!isCorrect){
     print("Please enter your guessed number : ");
-    
+    int? guessedNum = int.parse(stdin.readLineSync()!);
+    guess(guessedNum);
   }
+}
+
+void guess(int guess){
+
 }
 
