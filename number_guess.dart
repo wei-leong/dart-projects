@@ -25,7 +25,6 @@ void execution( int low, int high){
   while(!isCorrect){
     stdout.write("Please enter your guessed number : ");
     int? guessedNum = int.parse(stdin.readLineSync()!);
-    printLine();
     isCorrect = guess(guessedNum,generateRandom);
   }
 }
