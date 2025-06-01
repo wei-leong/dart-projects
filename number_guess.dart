@@ -8,9 +8,11 @@ import 'dart:math';
 void main(){
   stdout.write("Enter Range ( Low ) : ");
   int? low = int.parse(stdin.readLineSync()!); // stdin.readLineSync()! means this will be accepting a value
+  printLine();
   
   stdout.write("Enter Range ( High ) : ");
   int? high = int.parse(stdin.readLineSync()!); // stdin.readLineSync()! means this will be accepting a value
+  printLine();
 
   execution(low,high);
 }
@@ -23,6 +25,7 @@ void execution( int low, int high){
   while(!isCorrect){
     stdout.write("Please enter your guessed number : ");
     int? guessedNum = int.parse(stdin.readLineSync()!);
+    printLine();
     isCorrect = guess(guessedNum,generateRandom);
   }
 }
@@ -33,11 +36,16 @@ bool guess(int guess,int randomNumber){
     return true;
   }else if( guess < randomNumber){
     print("Number is too low");
+    printLine();
     return false;
   }else{
     print("Number is too high");
+    printLine();
     return false;
   }
   // return guess == randomNumber ? true : false ;
 }
 
+void printLine(){
+  print(" ");
+}
