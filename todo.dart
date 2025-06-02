@@ -91,11 +91,17 @@ void addTask(){
 
 void removeTask(){
   // Show The Task
+  showTask();
 
   // Remove task with Number Input
   stdout.write("Remove Task By Number: ");
   int? input = int.parse(stdin.readLineSync()!);
-  todo.remove(input);
+
+  // Remove Task from Global Variable
+  String taskToRemove = todo.keys.elementAt(input - 1) ;
+  todo.remove(taskToRemove);
+
+  print("Removed $taskToRemove");
 
   // Return To Menu
   menu();
