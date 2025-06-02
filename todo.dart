@@ -25,8 +25,8 @@ void menu(){
 
 Todo List CLI Menu
 __________________
-1. Add Task
-2. View Task 
+1. View Task
+2. Add Task 
 3. Edit Task
 4. Mark Done
 5. Remove Task
@@ -40,7 +40,7 @@ __________________
       viewTask();
       break;
     case 2:
-      // Function Here
+      addTask();
       break;
     case 3:
       // Function Here
