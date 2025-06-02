@@ -34,13 +34,13 @@ void main(){
 int menuReturn(){
   String menu = 
   """
-    Todo List CLI Menu
-    __________________
-    1. Add Task
-    2. View Task 
-    3. Edit Task
-    4. Mark Done
-    5. Remove Task
+Todo List CLI Menu
+__________________
+1. Add Task
+2. View Task 
+3. Edit Task
+4. Mark Done
+5. Remove Task
   """;
 
   print(menu);
