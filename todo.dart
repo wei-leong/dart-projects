@@ -159,7 +159,7 @@ void doneTask(){
 
 void undoneTask(){
   // Show The Task
-  showTask();
+  showAllTask();
 
   // Collect User Input
   stdout.write("Mark Task Done By Number: ");
