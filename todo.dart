@@ -47,7 +47,7 @@ __________________
       // Function Here
       break;
     case 4:
-      // Function Here
+      markTaskMenu();
       break;
     case 5:
       removeTask();
@@ -105,6 +105,32 @@ void removeTask(){
 
   // Return To Menu
   menu();
+}
+
+void markTaskMenu(){
+    String menuItem = 
+  """
+
+Mark Task Menu
+__________________
+1. Done Task
+2. Undone Task 
+  """;
+
+  print(menuItem);
+  stdout.write("Type number here: ");
+  int? input = int.parse(stdin.readLineSync()!);
+  switch(input){
+    case 1:
+      doneTask();
+      break;
+    case 2:
+      // function
+      break;
+    default:
+      menu();
+      break;
+  }
 }
 
 void doneTask(){
