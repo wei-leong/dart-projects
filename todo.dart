@@ -28,7 +28,7 @@ __________________
 1. View Task
 2. Add Task 
 3. Edit Task
-4. Mark Done
+4. Done Task
 5. Remove Task
 6. Exit
   """;
@@ -93,7 +93,7 @@ void removeTask(){
   // Show The Task
   showTask();
 
-  // Remove task with Number Input
+  // Collect User Input
   stdout.write("Remove Task By Number: ");
   int? input = int.parse(stdin.readLineSync()!);
 
@@ -104,5 +104,21 @@ void removeTask(){
   print("Removed $taskToRemove");
 
   // Return To Menu
+  menu();
+}
+
+void doneTask(){
+  // Show The Task
+  showTask();
+
+  // Collect User Input
+  stdout.write("Mark Task Done By Number: ");
+  int? input = int.parse(stdin.readLineSync()!);
+
+  // Mark Task Done from Global Variable
+  String taskToDone = todo.keys.elementAt(input - 1);
+  todo.update(taskToDone, (value) => true);
+
+  // Return to Menu
   menu();
 }
