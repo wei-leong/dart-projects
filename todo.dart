@@ -71,6 +71,14 @@ void showTask(){
   }
 }
 
+void showAllTask(){
+  int i = 1;
+  for(var task in todo.entries){ // Entries includes keys and values
+    print("$i. ${task.key}");
+    i++;
+  }
+}
+
 void viewTask(){
   showTask();
   menu();
