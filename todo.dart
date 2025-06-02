@@ -28,7 +28,7 @@ __________________
 1. View Task
 2. Add Task 
 3. Edit Task
-4. Done Task
+4. Mark Task ( Done / Undone )
 5. Remove Task
 6. Exit
   """;
