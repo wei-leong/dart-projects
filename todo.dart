@@ -50,7 +50,7 @@ __________________
       // Function Here
       break;
     case 5:
-      // Function Here
+      removeTask();
       break;
     case 6: 
       print("Exit Successful");
@@ -82,5 +82,17 @@ void addTask(){
   todo.addEntries(todoInput.entries);
 
   // Return to menu once Task is added
+  menu();
+}
+
+void removeTask(){
+  // Show The Task
+
+  // Remove task with Number Input
+  stdout.write("Remove Task By Number: ");
+  int? input = int.parse(stdin.readLineSync()!);
+  todo.remove(input);
+
+  // Return To Menu
   menu();
 }
