@@ -74,5 +74,6 @@ void addTask(){
   String input = stdin.readLineSync()!;
 
   // Add Task to todo Map Global Variables
-
+  final todoInput = <String,bool>{input.toString():false};
+  todo.addEntries(todoInput as Iterable<MapEntry<String, bool>>);
 }
