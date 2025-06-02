@@ -9,6 +9,26 @@ import 'dart:io';
 
 void main(){
   int returnedInput = menuReturn();
+  switch(returnedInput){
+    case 1:
+      // Function Here
+      break;
+    case 2:
+      // Function Here
+      break;
+    case 3:
+      // Function Here
+      break;
+    case 4:
+      // Function Here
+      break;
+    case 5:
+      print("Exit Successful");
+      break;
+    default:
+      print("Invalid Input, Please Try Again");
+      break;
+  }
 }
 
 int menuReturn(){
@@ -22,7 +42,7 @@ int menuReturn(){
     4. Mark Done
     5. Remove Task
   """;
-  
+
   print(menu);
   stdout.write("Type number here: ");
   int? input = int.parse(stdin.readLineSync()!);
