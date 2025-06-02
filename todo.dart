@@ -7,6 +7,11 @@
 
 import 'dart:io';
 
+Map<String,bool> todo = {
+  "Play Cyberpunk 2077": false,
+  "Clean the House": false,
+};
+
 void main(){
   int returnedInput = menuReturn();
   switch(returnedInput){
