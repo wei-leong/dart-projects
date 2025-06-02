@@ -10,13 +10,14 @@ import 'dart:io';
 Map<String,bool> todo = {
   "Play Cyberpunk 2077": false,
   "Clean the House": false,
+  "Drink Milk":true,
 };
 
 void main(){
   int returnedInput = menuReturn();
   switch(returnedInput){
     case 1:
-      // Function Here
+      viewTask();
       break;
     case 2:
       // Function Here
@@ -52,4 +53,14 @@ __________________
   stdout.write("Type number here: ");
   int? input = int.parse(stdin.readLineSync()!);
   return input;
+}
+
+void viewTask(){
+  int i = 1;
+  for(var task in todo.entries){ // Entries includes keys and values
+    if (!task.value){
+      print("$i. ${task.key}");
+    }
+    i++;
+  }
 }
