@@ -7,12 +7,14 @@
 
 import 'dart:io';
 
+// Global Variable : Todo
 Map<String,bool> todo = {
   "Play Cyberpunk 2077": false,
   "Clean the House": false,
-  "Drink Milk":true,
+  "Drink Milk":true, // This task is done and won't be shown at View Task
 };
 
+// Main Function
 void main(){
   menu();
 }
@@ -64,4 +66,13 @@ void viewTask(){
     i++;
   }
   menu();
+}
+
+void addTask(){
+  // Accept New Tasks
+  stdout.write("Add new task here: ");
+  String input = stdin.readLineSync()!;
+
+  // Add Task to todo Map Global Variables
+
 }
