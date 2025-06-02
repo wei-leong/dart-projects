@@ -30,6 +30,7 @@ __________________
 3. Edit Task
 4. Mark Done
 5. Remove Task
+6. Exit
   """;
 
   print(menu);
@@ -49,6 +50,9 @@ __________________
       // Function Here
       break;
     case 5:
+      // Function Here
+      break;
+    case 6: 
       print("Exit Successful");
       break;
     default:
@@ -62,8 +66,8 @@ void viewTask(){
   for(var task in todo.entries){ // Entries includes keys and values
     if (!task.value){
       print("$i. ${task.key}");
+      i++;
     }
-    i++;
   }
   menu();
 }
