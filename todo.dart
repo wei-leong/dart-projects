@@ -66,8 +66,8 @@ void showTask(){
   for(var task in todo.entries){ // Entries includes keys and values
     if (!task.value){
       print("$i. ${task.key}");
-      i++;
     }
+    i++;
   }
 }
 
