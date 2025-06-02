@@ -76,4 +76,7 @@ void addTask(){
   // Add Task to todo Map Global Variables
   final todoInput = <String,bool>{input.toString():false};
   todo.addEntries(todoInput as Iterable<MapEntry<String, bool>>);
+
+  // Return to menu once Task is added
+  menu();
 }
