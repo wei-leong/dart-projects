@@ -44,7 +44,7 @@ __________________
       addTask();
       break;
     case 3:
-      // Function Here
+      editTask();
       break;
     case 4:
       markTaskMenu();
@@ -168,6 +168,31 @@ void undoneTask(){
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
   todo.update(taskToDone, (value) => false);
+
+  // Return to Menu
+  menu();
+}
+
+void editTask(){
+  // Show The Task
+  showAllTask();
+
+  // Collect User Input
+  stdout.write("Edit Task Title By Number: ");
+  int? input = int.parse(stdin.readLineSync()!);
+
+  // New Title
+  stdout.write("Please enter New Title: ");
+  String? titleInput = stdin.readLineSync()!;
+  final newTask = <String,bool>{titleInput.toString():false};
+
+  // Remove Task from Global Variable
+  String taskToRemove = todo.keys.elementAt(input - 1) ;
+  todo.remove(taskToRemove);
+
+  // Map Keys can't be changed
+  // Add New Task 
+  todo.addEntries(newTask.entries);
 
   // Return to Menu
   menu();
