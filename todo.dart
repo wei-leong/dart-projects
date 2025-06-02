@@ -61,7 +61,7 @@ __________________
   }
 }
 
-void viewTask(){
+void showTask(){
   int i = 1;
   for(var task in todo.entries){ // Entries includes keys and values
     if (!task.value){
@@ -69,6 +69,10 @@ void viewTask(){
       i++;
     }
   }
+}
+
+void viewTask(){
+  showTask();
   menu();
 }
 
