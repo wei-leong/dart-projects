@@ -125,7 +125,7 @@ __________________
       doneTask();
       break;
     case 2:
-      // function
+      undoneTask();
       break;
     default:
       menu();
@@ -144,6 +144,22 @@ void doneTask(){
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
   todo.update(taskToDone, (value) => true);
+
+  // Return to Menu
+  menu();
+}
+
+void undoneTask(){
+  // Show The Task
+  showTask();
+
+  // Collect User Input
+  stdout.write("Mark Task Done By Number: ");
+  int? input = int.parse(stdin.readLineSync()!);
+
+  // Mark Task Done from Global Variable
+  String taskToDone = todo.keys.elementAt(input - 1);
+  todo.update(taskToDone, (value) => false);
 
   // Return to Menu
   menu();
