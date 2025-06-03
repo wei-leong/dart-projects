@@ -7,6 +7,16 @@
 // 5. Delete A Contact
 import 'dart:io';
 
+Map<String,String> contactList = {
+  "John Cena":"0177755563",
+  "John Wick":"0177123712",
+  "V":"0177453462",
+  "Leon S. Kennedy":"0166654345",
+  "Albert Wesker":"0177345345",
+  "Ethan Winters":"0178342345",
+  "Luis Serra":"0178342345",
+};
+
 void main(){
   createMenu();
 }
