@@ -96,6 +96,7 @@ void viewAllContact(){
     print("$i. ${contacts.key} (${contacts.value})");
     i++;
   }
+  space();
   createMenu();
 }
 
