@@ -178,8 +178,6 @@ void updateContact(){
   contactList.remove(contactToDelete);
 
   addNewContact();
-
-  createMenu();
 }
 
 void deleteContact(){
