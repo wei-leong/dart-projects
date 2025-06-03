@@ -165,32 +165,26 @@ String? validateContact(){
   return inputContactNum;
 }
 
+void removeContactWithId(){
+  stdout.write("Please enter Contact in Number to Update : ");
+  int? removeID = int.tryParse(stdin.readLineSync()!);
+
+  // In Map, keys are unique and can't be changed, so I need to delete and add it again
+  String contactToDelete = contactList.keys.elementAt(removeID! -1);
+  contactList.remove(contactToDelete);
+}
+
 void updateContact(){
   printContact();
   space();
-
-  stdout.write("Please enter Contact in Number to Update : ");
-  // ! Refactor code for getting id
-  int? updateId = int.tryParse(stdin.readLineSync()!);
-
-  // In Map, keys are unique and can't be changed, so I need to delete and add it again
-  String contactToDelete = contactList.keys.elementAt(updateId! -1);
-  contactList.remove(contactToDelete);
-
-  addNewContact();
+  removeContactWithId();
+  addNewContact(); // Doesn't need to add createMenu() because removeContactWithId alr has one
 }
 
 void deleteContact(){
   printContact();
   space();
-
-  stdout.write("Please enter Contact in Number to Delete : ");
-  int? deleteId = int.tryParse(stdin.readLineSync()!);
-
- // Map Index Starts at 0 
-  String contactToRemove = contactList.keys.elementAt(deleteId! - 1);
-  contactList.remove(contactToRemove);
-
+  removeContactWithId();
   createMenu();
 }
 
