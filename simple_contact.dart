@@ -5,6 +5,7 @@
 // 3. Add New Contact
 // 4. Update Phone Number 
 // 5. Delete A Contact
+import 'dart:developer';
 import 'dart:io';
 
 Map<String,String> contactList = {
@@ -46,6 +47,7 @@ Simple Contact Menu
     case 2:
       break;
     case 3:
+      addNewContact();
       break;
     case 4:
       break;
@@ -62,6 +64,7 @@ int? userInput(int menuItems){
   while(!isInt){
     // User Input 
     stdout.write("Please enter a number : ");
+    // ! tryParse will return null when user is not input integer value
     inputNum = int.tryParse(stdin.readLineSync()!);
 
     if(inputNum != null){
@@ -90,6 +93,43 @@ void viewAllContact(){
     print("$i. ${contacts.key} (${contacts.value})");
     i++;
   }
+}
+
+void addNewContact(){
+  stdout.write("Name : ");
+  String? contactName = stdin.readLineSync()!;
+  
+  String? contactNumber = validateContact();
+
+  print("$contactName, $contactNumber");
+}
+
+String? validateContact(){
+  String? inputContactNum = "";
+  bool isContactCorrect = false;
+
+  while(!isContactCorrect){
+    stdout.write("Number : ");
+    // ! tryParse will return null when user is not input integer value
+    inputContactNum = stdin.readLineSync()!;
+    int? contactNum = int.tryParse(inputContactNum);
+
+    if(contactNum != null){
+      if(inputContactNum.length > 10 || inputContactNum.length < 8){
+        print("Phone Number length is over 10, please try again");
+        space();
+        continue;
+      }else{
+        isContactCorrect = true;
+        break;
+      }
+    }else{
+      print("Invalid contact number format, please try again");
+      space();
+      continue;
+    }
+  }
+  return inputContactNum;
 }
 
 void space(){
