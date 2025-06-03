@@ -43,10 +43,10 @@ Simple Contact Menu
   
   switch(input){
     case 1: viewAllContact(); break;
-    case 2: searchContact(); break;
-    case 3: addNewContact(); break;
+    case 2: searchContact();  break;
+    case 3: addNewContact();  break;
     case 4: break;
-    case 5: break;
+    case 5: deleteContact();  break;
     case 6: break;
   }
 }
@@ -169,6 +169,12 @@ String? validateContact(){
 void deleteContact(){
   printContact();
   space();
+
+  stdout.write("Please enter Contact in Number to Delete : ");
+  int? deleteId = int.tryParse(stdin.readLineSync()!);
+
+  String contactToRemove = contactList.keys.elementAt(deleteId! - 1);
+  contactList.remove(contactToRemove);
 
   createMenu();
 }
