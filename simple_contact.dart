@@ -5,7 +5,6 @@
 // 3. Add New Contact
 // 4. Update Phone Number 
 // 5. Delete A Contact
-import 'dart:developer';
 import 'dart:io';
 
 Map<String,String> contactList = {
@@ -45,7 +44,7 @@ Simple Contact Menu
     case 1: viewAllContact(); break;
     case 2: searchContact();  break;
     case 3: addNewContact();  break;
-    case 4: break;
+    case 4: updateContact();  break;
     case 5: deleteContact();  break;
     case 6: break;
   }
@@ -166,6 +165,23 @@ String? validateContact(){
   return inputContactNum;
 }
 
+void updateContact(){
+  printContact();
+  space();
+
+  stdout.write("Please enter Contact in Number to Update : ");
+  // ! Refactor code for getting id
+  int? updateId = int.tryParse(stdin.readLineSync()!);
+
+  // In Map, keys are unique and can't be changed, so I need to delete and add it again
+  String contactToDelete = contactList.keys.elementAt(updateId! -1);
+  contactList.remove(contactToDelete);
+
+  addNewContact();
+
+  createMenu();
+}
+
 void deleteContact(){
   printContact();
   space();
@@ -173,6 +189,7 @@ void deleteContact(){
   stdout.write("Please enter Contact in Number to Delete : ");
   int? deleteId = int.tryParse(stdin.readLineSync()!);
 
+ // Map Index Starts at 0 
   String contactToRemove = contactList.keys.elementAt(deleteId! - 1);
   contactList.remove(contactToRemove);
 
