@@ -46,6 +46,7 @@ Simple Contact Menu
       viewAllContact();
       break;
     case 2:
+      searchContact();
       break;
     case 3:
       addNewContact();
@@ -97,6 +98,34 @@ void viewAllContact(){
     i++;
   }
   space();
+  createMenu();
+}
+
+void searchContact(){
+  bool isDone = false;
+  while(!isDone){
+    bool isFound = false;
+    stdout.write("Search Bar ( Name ): ");
+    String name = stdin.readLineSync()!;
+
+    for(var contact in contactList.entries){
+      if(name == contact.key){
+        space();
+        print("Found Contact List : ");
+        print("${contact.key} (${contact.value})");
+        space();
+        isDone = true;
+        isFound = true;
+        break;
+      }
+    }
+
+    if(!isFound){
+      print("No contact found, please try again");
+      space();
+      continue;
+    }
+  }
   createMenu();
 }
 
