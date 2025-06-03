@@ -42,21 +42,12 @@ Simple Contact Menu
   int? input = userInput(menuItems);
   
   switch(input){
-    case 1:
-      viewAllContact();
-      break;
-    case 2:
-      searchContact();
-      break;
-    case 3:
-      addNewContact();
-      break;
-    case 4:
-      break;
-    case 5:
-      break;
-    case 6:
-      break;
+    case 1: viewAllContact(); break;
+    case 2: searchContact(); break;
+    case 3: addNewContact(); break;
+    case 4: break;
+    case 5: break;
+    case 6: break;
   }
 }
 
@@ -176,7 +167,10 @@ String? validateContact(){
 }
 
 void deleteContact(){
+  printContact();
+  space();
 
+  createMenu();
 }
 
 void space(){
