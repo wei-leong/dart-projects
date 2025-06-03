@@ -30,7 +30,7 @@ Simple Contact Menu
 2. Search Contact 
 3. Add New Contact
 4. Update Phone Number
-5. Delete A Contact
+5. Remove A Contact
 6. Exit
 
 """;
