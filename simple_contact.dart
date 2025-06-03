@@ -23,7 +23,7 @@ void main(){
 }
 
 void createMenu(){
-  int menuItems = 5;
+  int menuItems = 6;
   String menu = 
 """
 Simple Contact Menu
@@ -32,6 +32,7 @@ Simple Contact Menu
 3. Add New Contact
 4. Update Phone Number
 5. Delete A Contact
+6. Exit
 
 """;
 
@@ -52,6 +53,8 @@ Simple Contact Menu
     case 4:
       break;
     case 5:
+      break;
+    case 6:
       break;
   }
 }
