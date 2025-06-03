@@ -91,12 +91,16 @@ int? userInput(int menuItems){
   return inputNum;
 }
 
-void viewAllContact(){
+void printContact(){
   int i = 1;
   for(var contacts in contactList.entries){
     print("$i. ${contacts.key} (${contacts.value})");
     i++;
   }
+}
+
+void viewAllContact(){
+  printContact();
   space();
   createMenu();
 }
@@ -169,6 +173,10 @@ String? validateContact(){
     }
   }
   return inputContactNum;
+}
+
+void deleteContact(){
+
 }
 
 void space(){
