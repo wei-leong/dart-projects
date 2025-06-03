@@ -93,15 +93,21 @@ void viewAllContact(){
     print("$i. ${contacts.key} (${contacts.value})");
     i++;
   }
+  createMenu();
 }
 
 void addNewContact(){
   stdout.write("Name : ");
-  String? contactName = stdin.readLineSync()!;
+  String contactName = stdin.readLineSync()!;
   
-  String? contactNumber = validateContact();
+  String contactNumber = validateContact()!;
 
-  print("$contactName, $contactNumber");
+  final newContact = <String,String>{contactName:contactNumber};
+  print("Contact Added To DB");
+  space();
+
+  contactList.addEntries(newContact.entries);
+  createMenu();
 }
 
 String? validateContact(){
