@@ -41,6 +41,7 @@ Simple Contact Menu
   
   switch(input){
     case 1:
+      viewAllContact();
       break;
     case 2:
       break;
@@ -81,6 +82,14 @@ int? userInput(int menuItems){
     }
   }
   return inputNum;
+}
+
+void viewAllContact(){
+  int i = 1;
+  for(var contacts in contactList.entries){
+    print("$i. ${contacts.key} (${contacts.value})");
+    i++;
+  }
 }
 
 void space(){
