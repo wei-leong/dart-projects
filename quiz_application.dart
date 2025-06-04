@@ -2,10 +2,11 @@
 // Create 2 Maps ( Questions Map<String,<List<String>>, Answer Map<String,String>)
 // Print Out the Score ( n/5 ) after user finished answering the questions 
 
-// Store Total Number of Questions for Display Score 
 import 'dart:io';
 
+// Store Total Number and Total Score of Questions for Display Score 
 int totalQuestions = questionsList.length;
+int totalScore = 0;
 
 // Question List ( For questionsList and answerList )
 String question1 = "What does `var` keyword do in Dart?";
@@ -115,6 +116,11 @@ int checkScore(bool correct){
     totalScore += 0;
   }
   return totalScore;
+}
+
+void printScore(int totalScore){
+  print("Total Score : $totalScore / $totalQuestions");
+  return;
 }
 
 void space(){
