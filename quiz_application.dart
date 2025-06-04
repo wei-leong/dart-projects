@@ -58,6 +58,7 @@ Map<String,String> answerList = {
 
 void main(){
   showQandA();
+  printScore(totalScore);
 }
 
 // Print Questions and receive Answers one at a time
@@ -102,20 +103,10 @@ void checkAnswer(String answerReceived,String question){
     }
   }
   if(answerReceived == answer){
-    checkScore(true);
-  }else{
-    checkScore(false);
-  }
-}
-
-int checkScore(bool correct){
-  int totalScore = 0;
-  if(correct == true){
     totalScore += 1;
   }else{
     totalScore += 0;
   }
-  return totalScore;
 }
 
 void printScore(int totalScore){
