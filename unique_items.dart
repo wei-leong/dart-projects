@@ -27,7 +27,8 @@ void repeatInput(){
     }
   }
   space();
-  print(uniqueItems);
+  List<String> list = convertSetToList(uniqueItems);
+  print(list);
   print("Program Ends");
 }
 
@@ -35,6 +36,14 @@ String checkInput(){
   stdout.write("Input Value to Check for Uniqueness : ");
   String? userInput = stdin.readLineSync()!;
   return userInput;
+}
+
+List<String> convertSetToList(Set<String> set){
+  List<String> listItems = [];
+  for(var items in set){
+    listItems.add(items);
+  }
+  return listItems;
 }
 
 void space(){
