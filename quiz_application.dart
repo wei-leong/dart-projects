@@ -68,6 +68,7 @@ void showQandA(){
       print(answers);
     }
     String answerReceived = receiveUserInput(i);
+    checkAnswer(answerReceived,questions.key);
     i++;
   }
 }
@@ -89,8 +90,32 @@ String receiveUserInput(int questionNum){
       continue;
     }
   }
-  return inputAns!;
-} 
+  return inputAns!.toUpperCase();
+}
+
+void checkAnswer(String answerReceived,String question){
+  String answer = "";
+  for(var questions in answerList.entries){
+    if(question == questions.key){
+      answer = questions.value;
+    }
+  }
+  if(answerReceived == answer){
+    checkScore(true);
+  }else{
+    checkScore(false);
+  }
+}
+
+int checkScore(bool correct){
+  int totalScore = 0;
+  if(correct == true){
+    totalScore += 1;
+  }else{
+    totalScore += 0;
+  }
+  return totalScore;
+}
 
 void space(){
   print(" ");
