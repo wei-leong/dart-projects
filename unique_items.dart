@@ -4,7 +4,6 @@
 // Tips : Since Set doesn't have sort function, we need to convert to List and use the sort method
 
 import 'dart:io';
-import 'simple_contact.dart';
 
 // Global Variable
 Set<String> uniqueItems = {};
@@ -29,7 +28,7 @@ void repeatInput(){
   }
   space();
   print(uniqueItems);
-  print("Program ends");
+  print("Program Ends");
 }
 
 String checkInput(){
