@@ -28,7 +28,8 @@ void repeatInput(){
   }
   space();
   List<String> list = convertSetToList(uniqueItems);
-  print(list);
+  list.sort();
+  printSortedList(list);
   print("Program Ends");
 }
 
@@ -44,6 +45,15 @@ List<String> convertSetToList(Set<String> set){
     listItems.add(items);
   }
   return listItems;
+}
+
+void printSortedList(List<String> list){
+  int i = 1;
+  for (var items in list){
+    print("$i. $items");
+    i++;
+  }
+  space();
 }
 
 void space(){
