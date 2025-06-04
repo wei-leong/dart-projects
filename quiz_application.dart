@@ -3,6 +3,8 @@
 // Print Out the Score ( n/5 ) after user finished answering the questions 
 
 // Store Total Number of Questions for Display Score 
+import 'dart:io';
+
 int totalQuestions = questionsList.length;
 
 // Question List ( For questionsList and answerList )
@@ -54,5 +56,42 @@ Map<String,String> answerList = {
 };
 
 void main(){
-  print(totalQuestions);
+  showQandA();
+}
+
+// Print Questions and receive Answers one at a time
+void showQandA(){
+  int i = 1;
+  for(var questions in questionsList.entries){
+    print("$i. ${questions.key}");
+    for(var answers in questions.value){
+      print(answers);
+    }
+    String answerReceived = receiveUserInput(i);
+    i++;
+  }
+}
+
+String receiveUserInput(int questionNum){
+  bool isAnsInRange = false;
+  String? inputAns = "";
+  while(!isAnsInRange){
+    stdout.write("Enter Answer for Question $questionNum : ");
+    inputAns = stdin.readLineSync()!;
+    String checkInput = inputAns.toUpperCase();
+    space();
+    if(checkInput == "A" || checkInput == "B" || checkInput == "C" || checkInput == "D"){
+      isAnsInRange = true;
+      break;
+    }
+    else{
+      print("Answer Not In Range ( A to D ), please try again");
+      continue;
+    }
+  }
+  return inputAns!;
+} 
+
+void space(){
+  print(" ");
 }
