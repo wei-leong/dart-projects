@@ -110,7 +110,8 @@ void checkAnswer(String answerReceived,String question){
 }
 
 void printScore(int totalScore){
-  print("Total Score : $totalScore / $totalQuestions");
+  double calculatePercentage = ( totalScore / totalQuestions ) * 100;
+  print("Total Score : $totalScore / $totalQuestions ( ${calculatePercentage.toInt()}% )");
   return;
 }
 
