@@ -26,8 +26,7 @@ void execution( int low, int high){
   int generateRandom = Random().nextInt(high) + low; // Range x >= low ( + low ) and x<= high
 
   while(!isCorrect){
-    stdout.write("Please enter your guessed number : ");
-    int? guessedNum = int.parse(stdin.readLineSync()!);
+    int guessedNum = checkNumberAvailability("Please enter your guessed number : ");
     isCorrect = guess(guessedNum,generateRandom);
   }
 }
