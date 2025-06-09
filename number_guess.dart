@@ -6,15 +6,18 @@ import 'dart:io';
 import 'dart:math';
 
 void main(){
-  stdout.write("Enter Range ( Low ) : ");
-  int? low = int.parse(stdin.readLineSync()!); // stdin.readLineSync()! means this will be accepting a value
+
+  int low = checkNumberAvailability("Enter Range ( Low ) : ");
   printLine();
-  
-  stdout.write("Enter Range ( High ) : ");
-  int? high = int.parse(stdin.readLineSync()!); // stdin.readLineSync()! means this will be accepting a value
+  int high = checkNumberAvailability("Enter Range ( High ) : ");
   printLine();
 
   execution(low,high);
+}
+
+int checkNumberAvailability(String message){
+  stdout.write(message);
+  return int.parse(stdin.readLineSync()!);
 }
 
 void execution( int low, int high){
