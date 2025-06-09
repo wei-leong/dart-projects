@@ -16,8 +16,19 @@ void main(){
 }
 
 int checkNumberAvailability(String message){
-  stdout.write(message);
-  return int.parse(stdin.readLineSync()!);
+  bool isCorrect = false;
+  int inputNum = 0;
+  while(!isCorrect){
+    try{
+      stdout.write(message);
+      inputNum = int.parse(stdin.readLineSync()!);
+      break;
+    }on FormatException catch (e){
+      print("Please input numbers only! ( Error Message : $e)");
+      continue;
+    }
+  }
+  return inputNum;
 }
 
 void execution( int low, int high){
