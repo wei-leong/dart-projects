@@ -6,25 +6,48 @@ import 'dart:io';
 import 'dart:math';
 
 void main(){
-  stdout.write("Enter Range ( Low ) : ");
-  int? low = int.parse(stdin.readLineSync()!); // stdin.readLineSync()! means this will be accepting a value
-  printLine();
-  
-  stdout.write("Enter Range ( High ) : ");
-  int? high = int.parse(stdin.readLineSync()!); // stdin.readLineSync()! means this will be accepting a value
-  printLine();
-
+  int low = 0;
+  int high = 0;
+  bool isRangeValid = false;
+  while(!isRangeValid){
+    low = checkNumberAvailability("Enter Range ( Low ) : ");
+    printLine();
+    high = checkNumberAvailability("Enter Range ( High ) : ");
+    printLine();
+    if(low > high){
+      print("Range Error ( Low can't be greater than High )");
+      printLine();
+      continue;
+    }else{
+      break;
+    }
+  }
   execution(low,high);
 }
 
-void execution( int low, int high){
+int checkNumberAvailability(String message){
   bool isCorrect = false;
+  int inputNum = 0;
+  while(!isCorrect){
+    try{
+      stdout.write(message);
+      inputNum = int.parse(stdin.readLineSync()!);
+      break;
+    }on FormatException catch (e){
+      print("Please input numbers only! ( Error Message : $e)");
+      continue;
+    }
+  }
+  return inputNum;
+}
 
-  int generateRandom = Random().nextInt(high) + low; // Range x >= low ( + low ) and x<= high
+void execution(int low, int high){
+  bool isCorrect = false;
+  // if high is 10 , Random.nextInt(high) will generate values 0 to 9 , where the high is like index / range
+  int generateRandom = Random().nextInt(high - low + 1) + low; // Range x >= low ( + low ) and x<= high
 
   while(!isCorrect){
-    stdout.write("Please enter your guessed number : ");
-    int? guessedNum = int.parse(stdin.readLineSync()!);
+    int guessedNum = checkNumberAvailability("Please enter your guessed number : ");
     isCorrect = guess(guessedNum,generateRandom);
   }
 }
