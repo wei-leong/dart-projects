@@ -31,10 +31,10 @@ int checkNumberAvailability(String message){
   return inputNum;
 }
 
-void execution( int low, int high){
+void execution(int low, int high){
   bool isCorrect = false;
-
-  int generateRandom = Random().nextInt(high) + low; // Range x >= low ( + low ) and x<= high
+  // if high is 10 , Random.nextInt(high) will generate values 0 to 9 , where the high is like index / range
+  int generateRandom = Random().nextInt(high - low + 1) + low; // Range x >= low ( + low ) and x<= high
 
   while(!isCorrect){
     int guessedNum = checkNumberAvailability("Please enter your guessed number : ");
