@@ -6,12 +6,22 @@ import 'dart:io';
 import 'dart:math';
 
 void main(){
-
-  int low = checkNumberAvailability("Enter Range ( Low ) : ");
-  printLine();
-  int high = checkNumberAvailability("Enter Range ( High ) : ");
-  printLine();
-
+  int low = 0;
+  int high = 0;
+  bool isRangeValid = false;
+  while(!isRangeValid){
+    low = checkNumberAvailability("Enter Range ( Low ) : ");
+    printLine();
+    high = checkNumberAvailability("Enter Range ( High ) : ");
+    printLine();
+    if(low > high){
+      print("Range Error ( Low can't be greater than High )");
+      printLine();
+      continue;
+    }else{
+      break;
+    }
+  }
   execution(low,high);
 }
 
