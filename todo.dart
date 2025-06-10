@@ -133,15 +133,9 @@ __________________
   print(menuItem);
   int? input = checkIntInput();
   switch(input){
-    case 1:
-      doneTask();
-      break;
-    case 2:
-      undoneTask();
-      break;
-    default:
-      menu();
-      break;
+    case 1: doneTask();  break;
+    case 2: undoneTask();  break;
+    default:  menu(); break;
   }
 }
 
