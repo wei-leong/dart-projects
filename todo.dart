@@ -7,6 +7,8 @@
 
 import 'dart:io';
 
+import 'quiz_application.dart';
+
 // Global Variable : Todo
 Map<String,bool> todo = {
   "Play Cyberpunk 2077": false,
@@ -38,19 +40,30 @@ __________________
 }
 
 void menuInput(){
-  stdout.write("Type number here: ");
-  int? input = int.tryParse(stdin.readLineSync()!);
+  bool isInputValid = false;
+  while(!isInputValid){
+    stdout.write("Type number here: ");
+    int? input = int.tryParse(stdin.readLineSync()!);
   
-    
-  switch(input){
-    case 1: viewTask(); break;
-    case 2: addTask();  break;
-    case 3: editTask(); break;
-    case 4: markTaskMenu();  break;
-    case 5: removeTask();  break;
-    case 6: print("Exit Successful"); break;
-    default:  print("Invalid Input, Please Try Again"); break;
+    if (input != null){
+      switch(input){
+        case 1: viewTask(); break;
+        case 2: addTask();  break;
+        case 3: editTask(); break;
+        case 4: markTaskMenu();  break;
+        case 5: removeTask();  break;
+        case 6: print("Exit Successful"); break;
+        default:  print("Invalid Input, Please Try Again"); space(); continue;
+      }
+      break;
+    }
+    else{
+      print("Invalid Input, Please Try Again");
+      space();
+      continue;
+    }
   }
+
 }
 
 void showTask(){
