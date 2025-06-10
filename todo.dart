@@ -4,8 +4,8 @@
 // 3. Mark Done
 // 4. Remove Task
 // 5. Exit
-
 import 'dart:io';
+import 'quiz_application.dart';
 
 // Global Variable : Todo
 Map<String,bool> todo = {
@@ -34,30 +34,33 @@ __________________
   """;
 
   print(menu);
-  stdout.write("Type number here: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  bool isLoopDone = false;
+  while(!isLoopDone){
+    int input = checkIntInput();
     switch(input){
-    case 1:
-      viewTask();
-      break;
-    case 2:
-      addTask();
-      break;
-    case 3:
-      editTask();
-      break;
-    case 4:
-      markTaskMenu();
-      break;
-    case 5:
-      removeTask();
-      break;
-    case 6: 
-      print("Exit Successful");
-      break;
-    default:
+      case 1: viewTask(); isLoopDone = true; break;
+      case 2: addTask(); isLoopDone = true;  break;
+      case 3: editTask(); isLoopDone = true; break;
+      case 4: markTaskMenu(); isLoopDone = true;  break;
+      case 5: removeTask(); isLoopDone = true;  break;
+      case 6: print("Exit Successful"); isLoopDone = true; break;
+      default:  print("Invalid Input, Please Try Again"); space(); isLoopDone = false; break;
+    }
+  }
+}
+
+int checkIntInput({String message = "Type number here: "}){
+  bool isInputValid = false;
+  while(!isInputValid){
+    stdout.write("Type number here: ");
+    int? input = int.tryParse(stdin.readLineSync()!);
+    if (input != null){
+      return input;
+    }else{
       print("Invalid Input, Please Try Again");
-      break;
+      space();
+      continue;
+    }
   }
 }
 
@@ -100,10 +103,11 @@ void addTask(){
 void removeTask(){
   // Show The Task
   showTask();
+  space();
 
   // Collect User Input
   stdout.write("Remove Task By Number: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  int? input = checkIntInput();
 
   // Remove Task from Global Variable
   String taskToRemove = todo.keys.elementAt(input - 1) ;
@@ -126,18 +130,11 @@ __________________
   """;
 
   print(menuItem);
-  stdout.write("Type number here: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  int? input = checkIntInput();
   switch(input){
-    case 1:
-      doneTask();
-      break;
-    case 2:
-      undoneTask();
-      break;
-    default:
-      menu();
-      break;
+    case 1: doneTask();  break;
+    case 2: undoneTask();  break;
+    default:  menu(); break;
   }
 }
 
@@ -147,7 +144,7 @@ void doneTask(){
 
   // Collect User Input
   stdout.write("Mark Task Done By Number: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  int? input = checkIntInput();
 
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
@@ -163,7 +160,7 @@ void undoneTask(){
 
   // Collect User Input
   stdout.write("Mark Task Done By Number: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  int? input = checkIntInput();
 
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
@@ -176,10 +173,11 @@ void undoneTask(){
 void editTask(){
   // Show The Task
   showAllTask();
+  space();
 
   // Collect User Input
   stdout.write("Edit Task Title By Number: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  int? input = checkIntInput();
 
   // New Title
   stdout.write("Please enter New Title: ");
