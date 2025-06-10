@@ -132,7 +132,7 @@ __________________
 
   print(menuItem);
   stdout.write("Type number here: ");
-  int? input = markTaskInput();
+  int? input = checkIntInput();
   switch(input){
     case 1:
       doneTask();
@@ -143,21 +143,6 @@ __________________
     default:
       menu();
       break;
-  }
-}
-
-int markTaskInput(){
-  bool isInputValid = false;
-  while(!isInputValid){
-    stdout.write("Type number here: ");
-    int? input = int.tryParse(stdin.readLineSync()!);
-    if(input != null){
-      return input;
-    }else{
-      print("Invalid Format, Please Try Again");
-      space();
-      continue;
-    }
   }
 }
 
