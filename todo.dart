@@ -101,6 +101,7 @@ void addTask(){
 void removeTask(){
   // Show The Task
   showTask();
+  space();
 
   // Collect User Input
   stdout.write("Remove Task By Number: ");
@@ -177,6 +178,7 @@ void undoneTask(){
 void editTask(){
   // Show The Task
   showAllTask();
+  space();
 
   // Collect User Input
   stdout.write("Edit Task Title By Number: ");
