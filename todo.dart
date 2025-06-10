@@ -34,7 +34,35 @@ __________________
   """;
 
   print(menu);
-  menuInput();
+  bool isLoopDone = false;
+  while(!isLoopDone){
+    int input = checkIntInput();
+    switch(input){
+      case 1: viewTask(); isLoopDone = true; break;
+      case 2: addTask(); isLoopDone = true;  break;
+      case 3: editTask(); isLoopDone = true; break;
+      case 4: markTaskMenu(); isLoopDone = true;  break;
+      case 5: removeTask(); isLoopDone = true;  break;
+      case 6: print("Exit Successful"); isLoopDone = true; break;
+      default:  print("Invalid Input, Please Try Again"); space(); isLoopDone = false; break;
+    }
+  }
+}
+
+int checkIntInput({String message = "Type number here: "}){
+  bool isInputValid = false;
+  while(!isInputValid){
+    stdout.write("Type number here: ");
+    int? input = int.tryParse(stdin.readLineSync()!);
+    if (input != null){
+      return input;
+    }
+    else{
+      print("Invalid Input, Please Try Again");
+      space();
+      continue;
+    }
+  }
 }
 
 void menuInput(){
