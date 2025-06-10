@@ -34,9 +34,15 @@ __________________
   """;
 
   print(menu);
+  menuInput();
+}
+
+void menuInput(){
   stdout.write("Type number here: ");
-  int? input = int.parse(stdin.readLineSync()!);
-    switch(input){
+  int? input = int.tryParse(stdin.readLineSync()!);
+  
+    
+  switch(input){
     case 1: viewTask(); break;
     case 2: addTask();  break;
     case 3: editTask(); break;
