@@ -108,7 +108,7 @@ void removeTask(){
 
   // Collect User Input
   stdout.write("Remove Task By Number: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  int? input = checkIntInput();
 
   // Remove Task from Global Variable
   String taskToRemove = todo.keys.elementAt(input - 1) ;
@@ -131,7 +131,6 @@ __________________
   """;
 
   print(menuItem);
-  stdout.write("Type number here: ");
   int? input = checkIntInput();
   switch(input){
     case 1:
@@ -152,7 +151,7 @@ void doneTask(){
 
   // Collect User Input
   stdout.write("Mark Task Done By Number: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  int? input = checkIntInput();
 
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
@@ -168,7 +167,7 @@ void undoneTask(){
 
   // Collect User Input
   stdout.write("Mark Task Done By Number: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  int? input = checkIntInput();
 
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
@@ -185,7 +184,7 @@ void editTask(){
 
   // Collect User Input
   stdout.write("Edit Task Title By Number: ");
-  int? input = int.parse(stdin.readLineSync()!);
+  int? input = checkIntInput();
 
   // New Title
   stdout.write("Please enter New Title: ");
