@@ -65,31 +65,6 @@ int checkIntInput({String message = "Type number here: "}){
   }
 }
 
-void menuInput(){
-  bool isInputValid = false;
-  while(!isInputValid){
-    stdout.write("Type number here: ");
-    int? input = int.tryParse(stdin.readLineSync()!);
-    if (input != null){
-      switch(input){
-        case 1: viewTask(); break;
-        case 2: addTask();  break;
-        case 3: editTask(); break;
-        case 4: markTaskMenu();  break;
-        case 5: removeTask();  break;
-        case 6: print("Exit Successful"); break;
-        default:  print("Invalid Input, Please Try Again"); space(); continue;
-      }
-      break;
-    }
-    else{
-      print("Invalid Input, Please Try Again");
-      space();
-      continue;
-    }
-  }
-}
-
 void showTask(){
   int i = 1;
   for(var task in todo.entries){ // Entries includes keys and values
