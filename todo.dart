@@ -56,8 +56,7 @@ int checkIntInput({String message = "Type number here: "}){
     int? input = int.tryParse(stdin.readLineSync()!);
     if (input != null){
       return input;
-    }
-    else{
+    }else{
       print("Invalid Input, Please Try Again");
       space();
       continue;
