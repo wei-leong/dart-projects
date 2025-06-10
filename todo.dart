@@ -37,27 +37,13 @@ __________________
   stdout.write("Type number here: ");
   int? input = int.parse(stdin.readLineSync()!);
     switch(input){
-    case 1:
-      viewTask();
-      break;
-    case 2:
-      addTask();
-      break;
-    case 3:
-      editTask();
-      break;
-    case 4:
-      markTaskMenu();
-      break;
-    case 5:
-      removeTask();
-      break;
-    case 6: 
-      print("Exit Successful");
-      break;
-    default:
-      print("Invalid Input, Please Try Again");
-      break;
+    case 1: viewTask(); break;
+    case 2: addTask();  break;
+    case 3: editTask(); break;
+    case 4: markTaskMenu();  break;
+    case 5: removeTask();  break;
+    case 6: print("Exit Successful"); break;
+    default:  print("Invalid Input, Please Try Again"); break;
   }
 }
 
