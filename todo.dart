@@ -42,7 +42,6 @@ void menuInput(){
   while(!isInputValid){
     stdout.write("Type number here: ");
     int? input = int.tryParse(stdin.readLineSync()!);
-  
     if (input != null){
       switch(input){
         case 1: viewTask(); break;
@@ -61,7 +60,6 @@ void menuInput(){
       continue;
     }
   }
-
 }
 
 void showTask(){
