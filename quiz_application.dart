@@ -8,13 +8,14 @@ import 'dart:io';
 int totalQuestions = questionsList.length;
 int totalScore = 0;
 
-// Question List ( For questionsList and answerList )
+// Questions ( For questionsList and answerList )
 String question1 = "What does `var` keyword do in Dart?";
 String question2 = "Which widget is used for layout in a vertical direction in Flutter?";
 String question3 = "What does `setState()` do in Flutter?";
 String question4 = "What file is used to manage Dart/Flutter dependencies?";
 String question5 = "Which data type is used to store true or false in Dart?";
 
+// Maps for storing Questions and Answers
 Map<String,List<String>> questionsList = {
   question1:[    
     'A. Declares a variable with dynamic type',
@@ -48,6 +49,7 @@ Map<String,List<String>> questionsList = {
   ],
 }; 
 
+// Maps for storing the Question's Answers
 Map<String,String> answerList = {
   question1:"A",
   question2:"C",
@@ -75,6 +77,7 @@ void showQandA(){
   }
 }
 
+// Check if User Input A, B, C, D
 String receiveUserInput(int questionNum){
   bool isAnsInRange = false;
   String? inputAns = "";
@@ -95,6 +98,7 @@ String receiveUserInput(int questionNum){
   return inputAns!.toUpperCase();
 }
 
+// Use to check Answer Input by Users
 void checkAnswer(String answerReceived,String question){
   String answer = "";
   for(var questions in answerList.entries){
@@ -109,6 +113,7 @@ void checkAnswer(String answerReceived,String question){
   }
 }
 
+// Used to print score when user finished answering the questions
 void printScore(int totalScore){
   double calculatePercentage = ( totalScore / totalQuestions ) * 100;
   print("Total Score : $totalScore / $totalQuestions ( ${calculatePercentage.toInt()}% )");
