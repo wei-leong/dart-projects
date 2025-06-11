@@ -3,6 +3,7 @@
 // Print Out the Score ( n/5 ) after user finished answering the questions 
 
 import 'dart:io';
+import 'dart:math';
 
 // Store Total Number and Total Score of Questions for Display Score 
 int totalQuestions = questionsList.length;
@@ -15,38 +16,44 @@ String question3 = "What does `setState()` do in Flutter?";
 String question4 = "What file is used to manage Dart/Flutter dependencies?";
 String question5 = "Which data type is used to store true or false in Dart?";
 
-// Maps for storing Questions and Answers
-Map<String,List<String>> questionsList = {
-  question1:[    
+List<String> answerList1 = [
     'A. Declares a variable with dynamic type',
     'B. Declares a constant',
     'C. Declares a final variable',
     'D. Defines a class'
-  ],
-  question2:[
+];
+List<String> answerList2 = [
     'A. Row',
     'B. Stack',
     'C. Column',
     'D. Container'
-  ],
-  question3:[
+];
+List<String> answerList3 = [
     'A. Resets the app state',
     'B. Builds the entire app again',
     'C. Updates the widget state and triggers a rebuild',
     'D. Logs state changes'
-  ],
-  question4:[
+];
+List<String> answerList4 = [
     'A. manifest.yaml',
     'B. pubspec.yaml',
     'C. flutter.yaml',
     'D. config.yaml'
-  ],
-  question5:[
+];
+List<String> answerList5 = [
     'A. int',
     'B. string',
     'C. bool',
     'D. truthy'
-  ],
+];
+
+// Maps for storing Questions and Answers
+Map<String,List<String>> questionsList = {
+  question1:answerList1,
+  question2:answerList2,
+  question3:answerList3,
+  question4:answerList4,
+  question5:answerList5,
 }; 
 
 // Maps for storing the Question's Answers
