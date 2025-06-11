@@ -57,7 +57,7 @@ Map<String,List<String>> questionsList = {
 }; 
 
 // Maps for storing the Question's Answers
-Map<String,String> answerList = {
+Map<String,String> answers = {
   question1:"A",
   question2:"C",
   question3:"C",
@@ -108,7 +108,7 @@ String receiveUserInput(int questionNum){
 // Use to check Answer Input by Users
 void checkAnswer(String answerReceived,String question){
   String answer = "";
-  for(var questions in answerList.entries){
+  for(var questions in answers.entries){
     if(question == questions.key){
       answer = questions.value;
     }
