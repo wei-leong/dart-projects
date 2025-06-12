@@ -1,0 +1,6 @@
+/*
+  Questions Description:
+  1. How do we replace vowels (a, e, i, o, u) with asterisks (*) in the string?
+  2. What method do we use to reverse the string in Dart?
+  3. How can we capitalize the first letter of the string while leaving the rest unchanged?
+*/
