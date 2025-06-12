@@ -4,3 +4,11 @@
   2. What method do we use to reverse the string in Dart?
   3. How can we capitalize the first letter of the string while leaving the rest unchanged?
 */
+
+import 'dart:io';
+
+void main(){
+  // Receives User Input
+  stdout.write("Enter a word : ");
+  String userInput = stdin.readLineSync()!;
+}
