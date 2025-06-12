@@ -12,6 +12,8 @@ void main(){
   stdout.write("Enter a word : ");
   String userInput = stdin.readLineSync()!;
 
-  String replacedWords = userInput.replaceAll(RegExp("[aeiou]",caseSensitive: false), "*"); // Test : awesome
+  // Replace Vowels to Asterisk ( * ) Function
+  String replacedWords = userInput.replaceAll(RegExp("[aeiou]",caseSensitive: false), "*");
+
   print(replacedWords);
 }
