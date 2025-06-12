@@ -15,5 +15,8 @@ void main(){
   // Replace Vowels to Asterisk ( * ) Function
   String replacedWords = userInput.replaceAll(RegExp("[aeiou]",caseSensitive: false), "*");
 
-  print(replacedWords);
+  // Reverse the String Value
+  // replacedWords is first split into List, reversed and join the list into string value
+  String reverseWords = replacedWords.split("").reversed.join();
+  print(reverseWords);
 }
