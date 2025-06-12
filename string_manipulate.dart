@@ -11,4 +11,7 @@ void main(){
   // Receives User Input
   stdout.write("Enter a word : ");
   String userInput = stdin.readLineSync()!;
+
+  String replacedWords = userInput.replaceAll(RegExp("[aeiou]",caseSensitive: false), "*"); // Test : awesome
+  print(replacedWords);
 }
