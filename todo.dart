@@ -196,7 +196,7 @@ int checkIntInput({String message = "Type number here: "}){
   }
 }
 
-int checkRangeError(String message){
+int checkTaskRange(String message){
   bool isValidInput = false;
   while(!isValidInput){
     try{
