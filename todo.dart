@@ -202,10 +202,14 @@ int checkRangeError(String message){
     try{
       stdout.write(message);
       int userInput = int.parse(stdin.readLineSync()!);
-      space();
       return userInput;
     }on RangeError{
       print("Invalid Range, please try again");
+      space();
+      continue;
+    }on FormatException{
+      print("Invalid Input, Please Try Again");
+      space();
       continue;
     }
   }
