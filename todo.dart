@@ -195,3 +195,18 @@ void editTask(){
   // Return to Menu
   menu();
 }
+
+int checkRangeError(String message){
+  bool isValidInput = false;
+  while(!isValidInput){
+    try{
+      stdout.write(message);
+      int userInput = int.parse(stdin.readLineSync()!);
+      space();
+      return userInput;
+    }on RangeError{
+      print("Invalid Range, please try again");
+      continue;
+    }
+  }
+}
