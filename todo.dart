@@ -128,8 +128,7 @@ void doneTask(){
   showTask();
 
   // Collect User Input
-  stdout.write("Mark Task Done By Number: ");
-  int? input = checkIntInput();
+  int? input = checkTaskRange("Mark Task Done By Number: ");
 
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
@@ -200,14 +199,15 @@ int checkTaskRange(String message){
   bool isValidInput = false;
   while(!isValidInput){
     try{
+      int min = 0;
+      int max = todo.length;
       stdout.write(message);
       int userInput = int.parse(stdin.readLineSync()!);
+      if(userInput < min || userInput > max){
+        throw RangeError("Invalid Range, please try again");
+      }
       return userInput;
-    }on RangeError{
-      print("Invalid Range, please try again");
-      space();
-      continue;
-    }on FormatException{
+    }catch (FormatException){
       print("Invalid Input, Please Try Again");
       space();
       continue;
