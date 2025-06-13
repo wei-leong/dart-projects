@@ -49,21 +49,6 @@ __________________
   }
 }
 
-int checkIntInput({String message = "Type number here: "}){
-  bool isInputValid = false;
-  while(!isInputValid){
-    stdout.write("Type number here: ");
-    int? input = int.tryParse(stdin.readLineSync()!);
-    if (input != null){
-      return input;
-    }else{
-      print("Invalid Input, Please Try Again");
-      space();
-      continue;
-    }
-  }
-}
-
 void showTask(){
   int i = 1;
   for(var task in todo.entries){ // Entries includes keys and values
@@ -194,6 +179,21 @@ void editTask(){
 
   // Return to Menu
   menu();
+}
+
+int checkIntInput({String message = "Type number here: "}){
+  bool isInputValid = false;
+  while(!isInputValid){
+    stdout.write("Type number here: ");
+    int? input = int.tryParse(stdin.readLineSync()!);
+    if (input != null){
+      return input;
+    }else{
+      print("Invalid Input, Please Try Again");
+      space();
+      continue;
+    }
+  }
 }
 
 int checkRangeError(String message){
