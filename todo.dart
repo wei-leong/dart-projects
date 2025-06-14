@@ -87,12 +87,11 @@ void addTask(){
 
 void removeTask(){
   // Show The Task
-  showTask();
+  showAllTask();
   space();
 
   // Collect User Input
-  stdout.write("Remove Task By Number: ");
-  int? input = checkIntInput();
+  int? input = checkTaskRange("Remove Task By Number : ");
 
   // Remove Task from Global Variable
   String taskToRemove = todo.keys.elementAt(input - 1) ;
