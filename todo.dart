@@ -49,21 +49,6 @@ __________________
   }
 }
 
-int checkIntInput({String message = "Type number here: "}){
-  bool isInputValid = false;
-  while(!isInputValid){
-    stdout.write("Type number here: ");
-    int? input = int.tryParse(stdin.readLineSync()!);
-    if (input != null){
-      return input;
-    }else{
-      print("Invalid Input, Please Try Again");
-      space();
-      continue;
-    }
-  }
-}
-
 void showTask(){
   int i = 1;
   for(var task in todo.entries){ // Entries includes keys and values
@@ -102,12 +87,11 @@ void addTask(){
 
 void removeTask(){
   // Show The Task
-  showTask();
+  showAllTask();
   space();
 
   // Collect User Input
-  stdout.write("Remove Task By Number: ");
-  int? input = checkIntInput();
+  int? input = checkTaskRange("Remove Task By Number : ");
 
   // Remove Task from Global Variable
   String taskToRemove = todo.keys.elementAt(input - 1) ;
@@ -143,8 +127,7 @@ void doneTask(){
   showTask();
 
   // Collect User Input
-  stdout.write("Mark Task Done By Number: ");
-  int? input = checkIntInput();
+  int? input = checkTaskRange("Mark Task Done By Number: ");
 
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
@@ -159,8 +142,7 @@ void undoneTask(){
   showAllTask();
 
   // Collect User Input
-  stdout.write("Mark Task Done By Number: ");
-  int? input = checkIntInput();
+  int? input = checkTaskRange("Mark Task Undone By Number: ");
 
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
@@ -176,8 +158,7 @@ void editTask(){
   space();
 
   // Collect User Input
-  stdout.write("Edit Task Title By Number: ");
-  int? input = checkIntInput();
+  int? input = checkTaskRange("Edit Task Title By Number: ");
 
   // New Title
   stdout.write("Please enter New Title: ");
@@ -194,4 +175,39 @@ void editTask(){
 
   // Return to Menu
   menu();
+}
+
+int checkIntInput({String message = "Type number here: "}){
+  bool isInputValid = false;
+  while(!isInputValid){
+    stdout.write("Type number here: ");
+    int? input = int.tryParse(stdin.readLineSync()!);
+    if (input != null){
+      return input;
+    }else{
+      print("Invalid Input, Please Try Again");
+      space();
+      continue;
+    }
+  }
+}
+
+int checkTaskRange(String message){
+  bool isValidInput = false;
+  while(!isValidInput){
+    try{
+      int min = 0;
+      int max = todo.length;
+      stdout.write(message);
+      int userInput = int.parse(stdin.readLineSync()!);
+      if(userInput < min || userInput > max){
+        throw RangeError("Invalid Range, please try again");
+      }
+      return userInput;
+    }catch (FormatException){
+      print("Invalid Input, Please Try Again");
+      space();
+      continue;
+    }
+  }
 }
