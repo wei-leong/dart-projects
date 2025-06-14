@@ -142,8 +142,7 @@ void undoneTask(){
   showAllTask();
 
   // Collect User Input
-  stdout.write("Mark Task Done By Number: ");
-  int? input = checkIntInput();
+  int? input = checkTaskRange("Mark Task Undone By Number: ");
 
   // Mark Task Done from Global Variable
   String taskToDone = todo.keys.elementAt(input - 1);
