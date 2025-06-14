@@ -158,8 +158,7 @@ void editTask(){
   space();
 
   // Collect User Input
-  stdout.write("Edit Task Title By Number: ");
-  int? input = checkIntInput();
+  int? input = checkTaskRange("Edit Task Title By Number: ");
 
   // New Title
   stdout.write("Please enter New Title: ");
