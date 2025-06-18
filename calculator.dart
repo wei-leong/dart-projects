@@ -4,19 +4,23 @@ int? savedNum;
 
 void main(){
   while(true){
+    // Print Message from Function
     String message = returnMessage(); 
+    print(message);
 
+    // Receive Input
+    int userInput = checkNumInput();
   }
 }
 
-int checkNumInput(String msg){
+int checkNumInput({String msg = "Please enter a number : "}){
   while(true){
-    stdout.write(msg);
+    stdout.write(msg + "\n");
     int? userInput = int.tryParse(stdin.readLineSync()!);
     if(userInput != null){
       return userInput;
     }else{
-      print("Invalid Input, please try again");
+      print("Invalid Input, please try again \n");
     }
   }
 }
