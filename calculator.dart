@@ -21,6 +21,7 @@ void main(){
         multiplication();
         break;
       case 4:
+        division();
         break;
       case 5:
         break;
@@ -92,6 +93,23 @@ void multiplication(){
     savedNum *= secondValue;
     print("\nMultiplication Value");
     print("$pastSaveState x $secondValue = $savedNum" + "\n");
+  }
+}
+
+void division(){
+  if(savedNum == 0){
+    int firstValue = checkNumInput(msg:"\nPlease enter 1st Value : ");
+    int secondValue = checkNumInput(msg:"\nPlease enter 2nd Value : ");
+
+    savedNum = (firstValue / secondValue).toInt();
+    print("\nDivision Value");
+    print("$firstValue / $secondValue = $savedNum" + "\n");
+  }else{
+    int pastSaveState = savedNum;
+    int secondValue = checkNumInput(msg:"\n" + "$savedNum / ");
+    savedNum *= secondValue;
+    print("\nMultiplication Value");
+    print("$pastSaveState / $secondValue = $savedNum" + "\n");
   }
 }
 
