@@ -17,3 +17,15 @@ ____________________
 """;
   }
 }
+
+int checkNumInput(String msg){
+  while(true){
+    stdout.write(msg);
+    int? userInput = int.tryParse(stdin.readLineSync()!);
+    if(userInput != null){
+      return userInput;
+    }else{
+      print("Invalid Input, please try again");
+    }
+  }
+}
