@@ -3,7 +3,6 @@
 // Print Out the Score ( n/5 ) after user finished answering the questions 
 
 import 'dart:io';
-import 'dart:math';
 
 // Store Total Number and Total Score of Questions for Display Score 
 int totalQuestions = questionsList.length;
