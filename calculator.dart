@@ -1,6 +1,6 @@
 import 'dart:io';
 
-int? savedNum; 
+int savedNum = 0; 
 
 void main(){
   while(true){
@@ -12,8 +12,8 @@ void main(){
     int userInput = checkNumInput();
     switch (userInput){
       case 1:
-        print("1");
-        return;
+        addition();
+        break;
       case 2:
         break;
       case 3:
@@ -39,6 +39,23 @@ int checkNumInput({String msg = "Please enter a number : "}){
     }else{
       print("Invalid Input, please try again \n");
     }
+  }
+}
+
+void addition(){
+  if(savedNum == 0){
+    int firstValue = checkNumInput(msg:"\nPlease enter 1st Value : ");
+    int secondValue = checkNumInput(msg:"\nPlease enter 2nd Value : ");
+
+    savedNum = firstValue + secondValue;
+    print("\nAddition Value");
+    print("$firstValue + $secondValue = $savedNum" + "\n");
+  }else{
+    int pastSaveState = savedNum;
+    int secondValue = checkNumInput(msg:"\n" + "$savedNum + ");
+    savedNum += secondValue;
+    print("\nAddition Value");
+    print("$pastSaveState + $secondValue = $savedNum" + "\n");
   }
 }
 
