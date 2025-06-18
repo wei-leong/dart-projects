@@ -15,6 +15,7 @@ void main(){
         addition();
         break;
       case 2:
+        subtraction();
         break;
       case 3:
         break;
@@ -56,6 +57,23 @@ void addition(){
     savedNum += secondValue;
     print("\nAddition Value");
     print("$pastSaveState + $secondValue = $savedNum" + "\n");
+  }
+}
+
+void subtraction(){
+  if(savedNum == 0){
+    int firstValue = checkNumInput(msg:"\nPlease enter 1st Value : ");
+    int secondValue = checkNumInput(msg:"\nPlease enter 2nd Value : ");
+
+    savedNum = firstValue - secondValue;
+    print("\nSubtraction Value");
+    print("$firstValue + $secondValue = $savedNum" + "\n");
+  }else{
+    int pastSaveState = savedNum;
+    int secondValue = checkNumInput(msg:"\n" + "$savedNum - ");
+    savedNum -= secondValue;
+    print("\nSubtraction Value");
+    print("$pastSaveState - $secondValue = $savedNum" + "\n");
   }
 }
 
