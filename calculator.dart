@@ -10,12 +10,29 @@ void main(){
 
     // Receive Input
     int userInput = checkNumInput();
+    switch (userInput){
+      case 1:
+        print("1");
+        return;
+      case 2:
+        break;
+      case 3:
+        break;
+      case 4:
+        break;
+      case 5:
+        break;
+      case 6:
+        return;
+      default:
+        print("Invalid Range, Please Try Again \n");
+    }
   }
 }
 
 int checkNumInput({String msg = "Please enter a number : "}){
   while(true){
-    stdout.write(msg + "\n");
+    stdout.write(msg);
     int? userInput = int.tryParse(stdin.readLineSync()!);
     if(userInput != null){
       return userInput;
