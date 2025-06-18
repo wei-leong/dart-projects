@@ -24,6 +24,7 @@ void main(){
         division();
         break;
       case 5:
+        clearSavedNumber();
         break;
       case 6:
         return;
@@ -111,6 +112,10 @@ void division(){
     print("\nMultiplication Value");
     print("$pastSaveState / $secondValue = $savedNum" + "\n");
   }
+}
+
+void clearSavedNumber(){
+  savedNum = 0;
 }
 
 String returnMessage(){
