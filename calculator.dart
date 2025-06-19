@@ -65,13 +65,13 @@ void addition(){
 
     savedNum = firstValue + secondValue;
     print("\nAddition Value");
-    print("$firstValue + $secondValue = $savedNum" + "\n");
+    print("$firstValue + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
   }else{
     double pastSaveState = savedNum;
     double secondValue = checkDoubleInput(msg:"\n" + "$savedNum + ");
     savedNum += secondValue;
     print("\nAddition Value");
-    print("$pastSaveState + $secondValue = $savedNum" + "\n");
+    print("$pastSaveState + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
   }
 }
 
@@ -82,13 +82,13 @@ void subtraction(){
 
     savedNum = firstValue - secondValue;
     print("\nSubtraction Value");
-    print("$firstValue + $secondValue = $savedNum" + "\n");
+    print("$firstValue + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
   }else{
     double pastSaveState = savedNum;
     double secondValue = checkDoubleInput(msg:"\n" + "$savedNum - ");
     savedNum -= secondValue;
     print("\nSubtraction Value");
-    print("$pastSaveState - $secondValue = $savedNum" + "\n");
+    print("$pastSaveState - $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
   }
 }
 
@@ -99,13 +99,13 @@ void multiplication(){
 
     savedNum = firstValue * secondValue;
     print("\nMultiplication Value");
-    print("$firstValue x $secondValue = $savedNum" + "\n");
+    print("$firstValue x $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
   }else{
     double pastSaveState = savedNum;
     double secondValue = checkDoubleInput(msg:"\n" + "$savedNum x ");
     savedNum *= secondValue;
     print("\nMultiplication Value");
-    print("$pastSaveState x $secondValue = $savedNum" + "\n");
+    print("$pastSaveState x $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
   }
 }
 
@@ -116,13 +116,13 @@ void division(){
 
     savedNum = firstValue / secondValue;
     print("\nDivision Value");
-    print("$firstValue / $secondValue = $savedNum" + "\n");
+    print("$firstValue / $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
   }else{
     double pastSaveState = savedNum;
     double secondValue = checkDoubleInput(msg:"\n" + "$savedNum / ");
     savedNum *= secondValue;
     print("\nMultiplication Value");
-    print("$pastSaveState / $secondValue = $savedNum" + "\n");
+    print("$pastSaveState / $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
   }
 }
 
