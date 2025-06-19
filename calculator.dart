@@ -1,6 +1,6 @@
 import 'dart:io';
 
-int savedNum = 0; 
+double savedNum = 0; 
 
 void main(){
   while(true){
@@ -34,6 +34,78 @@ void main(){
   }
 }
 
+void addition(){
+  if(savedNum == 0){
+    double firstValue = checkDoubleInput(msg:"\nPlease enter 1st Value : ");
+    double secondValue = checkDoubleInput(msg:"\nPlease enter 2nd Value : ");
+
+    savedNum = firstValue + secondValue;
+    print("\nAddition Value");
+    print("$firstValue + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+  }else{
+    double pastSaveState = savedNum;
+    double secondValue = checkDoubleInput(msg:"\n" + "$savedNum + ");
+    savedNum += secondValue;
+    print("\nAddition Value");
+    print("$pastSaveState + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+  }
+}
+
+void subtraction(){
+  if(savedNum == 0){
+    double firstValue = checkDoubleInput(msg:"\nPlease enter 1st Value : ");
+    double secondValue = checkDoubleInput(msg:"\nPlease enter 2nd Value : ");
+
+    savedNum = firstValue - secondValue;
+    print("\nSubtraction Value");
+    print("$firstValue + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+  }else{
+    double pastSaveState = savedNum;
+    double secondValue = checkDoubleInput(msg:"\n" + "$savedNum - ");
+    savedNum -= secondValue;
+    print("\nSubtraction Value");
+    print("$pastSaveState - $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+  }
+}
+
+void multiplication(){
+  if(savedNum == 0){
+    double firstValue = checkDoubleInput(msg:"\nPlease enter 1st Value : ");
+    double secondValue = checkDoubleInput(msg:"\nPlease enter 2nd Value : ");
+
+    savedNum = firstValue * secondValue;
+    print("\nMultiplication Value");
+    print("$firstValue x $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+  }else{
+    double pastSaveState = savedNum;
+    double secondValue = checkDoubleInput(msg:"\n" + "$savedNum x ");
+    savedNum *= secondValue;
+    print("\nMultiplication Value");
+    print("$pastSaveState x $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+  }
+}
+
+void division(){
+  if(savedNum == 0){
+    double firstValue = checkDoubleInput(msg:"\nPlease enter 1st Value : ");
+    double secondValue = checkDoubleInput(msg:"\nPlease enter 2nd Value : ");
+
+    savedNum = firstValue / secondValue;
+    print("\nDivision Value");
+    print("$firstValue / $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+  }else{
+    double pastSaveState = savedNum;
+    double secondValue = checkDoubleInput(msg:"\n" + "$savedNum / ");
+    savedNum *= secondValue;
+    print("\nMultiplication Value");
+    print("$pastSaveState / $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+  }
+}
+
+void clearSavedNumber(){
+  savedNum = 0;
+}
+
 int checkNumInput({String msg = "Please enter a number : "}){
   while(true){
     stdout.write(msg);
@@ -46,76 +118,16 @@ int checkNumInput({String msg = "Please enter a number : "}){
   }
 }
 
-void addition(){
-  if(savedNum == 0){
-    int firstValue = checkNumInput(msg:"\nPlease enter 1st Value : ");
-    int secondValue = checkNumInput(msg:"\nPlease enter 2nd Value : ");
-
-    savedNum = firstValue + secondValue;
-    print("\nAddition Value");
-    print("$firstValue + $secondValue = $savedNum" + "\n");
-  }else{
-    int pastSaveState = savedNum;
-    int secondValue = checkNumInput(msg:"\n" + "$savedNum + ");
-    savedNum += secondValue;
-    print("\nAddition Value");
-    print("$pastSaveState + $secondValue = $savedNum" + "\n");
+double checkDoubleInput({String msg = "Please enter a number : "}){
+  while(true){
+    stdout.write(msg);
+    double? userInput = double.tryParse(stdin.readLineSync()!);
+    if(userInput != null){
+      return userInput;
+    }else{
+      print("Invalid Input, please try again \n");
+    }
   }
-}
-
-void subtraction(){
-  if(savedNum == 0){
-    int firstValue = checkNumInput(msg:"\nPlease enter 1st Value : ");
-    int secondValue = checkNumInput(msg:"\nPlease enter 2nd Value : ");
-
-    savedNum = firstValue - secondValue;
-    print("\nSubtraction Value");
-    print("$firstValue + $secondValue = $savedNum" + "\n");
-  }else{
-    int pastSaveState = savedNum;
-    int secondValue = checkNumInput(msg:"\n" + "$savedNum - ");
-    savedNum -= secondValue;
-    print("\nSubtraction Value");
-    print("$pastSaveState - $secondValue = $savedNum" + "\n");
-  }
-}
-
-void multiplication(){
-  if(savedNum == 0){
-    int firstValue = checkNumInput(msg:"\nPlease enter 1st Value : ");
-    int secondValue = checkNumInput(msg:"\nPlease enter 2nd Value : ");
-
-    savedNum = firstValue * secondValue;
-    print("\nMultiplication Value");
-    print("$firstValue x $secondValue = $savedNum" + "\n");
-  }else{
-    int pastSaveState = savedNum;
-    int secondValue = checkNumInput(msg:"\n" + "$savedNum x ");
-    savedNum *= secondValue;
-    print("\nMultiplication Value");
-    print("$pastSaveState x $secondValue = $savedNum" + "\n");
-  }
-}
-
-void division(){
-  if(savedNum == 0){
-    int firstValue = checkNumInput(msg:"\nPlease enter 1st Value : ");
-    int secondValue = checkNumInput(msg:"\nPlease enter 2nd Value : ");
-
-    savedNum = (firstValue / secondValue).toInt();
-    print("\nDivision Value");
-    print("$firstValue / $secondValue = $savedNum" + "\n");
-  }else{
-    int pastSaveState = savedNum;
-    int secondValue = checkNumInput(msg:"\n" + "$savedNum / ");
-    savedNum *= secondValue;
-    print("\nMultiplication Value");
-    print("$pastSaveState / $secondValue = $savedNum" + "\n");
-  }
-}
-
-void clearSavedNumber(){
-  savedNum = 0;
 }
 
 String returnMessage(){
