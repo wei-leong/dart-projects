@@ -34,30 +34,6 @@ void main(){
   }
 }
 
-int checkNumInput({String msg = "Please enter a number : "}){
-  while(true){
-    stdout.write(msg);
-    int? userInput = int.tryParse(stdin.readLineSync()!);
-    if(userInput != null){
-      return userInput;
-    }else{
-      print("Invalid Input, please try again \n");
-    }
-  }
-}
-
-double checkDoubleInput({String msg = "Please enter a number : "}){
-  while(true){
-    stdout.write(msg);
-    double? userInput = double.tryParse(stdin.readLineSync()!);
-    if(userInput != null){
-      return userInput;
-    }else{
-      print("Invalid Input, please try again \n");
-    }
-  }
-}
-
 void addition(){
   if(savedNum == 0){
     double firstValue = checkDoubleInput(msg:"\nPlease enter 1st Value : ");
@@ -128,6 +104,30 @@ void division(){
 
 void clearSavedNumber(){
   savedNum = 0;
+}
+
+int checkNumInput({String msg = "Please enter a number : "}){
+  while(true){
+    stdout.write(msg);
+    int? userInput = int.tryParse(stdin.readLineSync()!);
+    if(userInput != null){
+      return userInput;
+    }else{
+      print("Invalid Input, please try again \n");
+    }
+  }
+}
+
+double checkDoubleInput({String msg = "Please enter a number : "}){
+  while(true){
+    stdout.write(msg);
+    double? userInput = double.tryParse(stdin.readLineSync()!);
+    if(userInput != null){
+      return userInput;
+    }else{
+      print("Invalid Input, please try again \n");
+    }
+  }
 }
 
 String returnMessage(){
