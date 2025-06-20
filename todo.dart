@@ -22,7 +22,6 @@ void main(){
 void menu(){
   String menu = 
   """
-
 Todo List CLI Menu
 __________________
 1. View Task
@@ -44,7 +43,7 @@ __________________
       case 4: markTaskMenu(); isLoopDone = true;  break;
       case 5: removeTask(); isLoopDone = true;  break;
       case 6: print("Exit Successful"); isLoopDone = true; break;
-      default:  print("Invalid Input, Please Try Again"); space(); isLoopDone = false; break;
+      default:  print("Invalid Input, Please Try Again\n"); isLoopDone = false; break;
     }
   }
 }
@@ -57,6 +56,7 @@ void showTask(){
     }
     i++;
   }
+  print(" ");
 }
 
 void showAllTask(){
@@ -65,6 +65,7 @@ void showAllTask(){
     print("$i. ${task.key}");
     i++;
   }
+  print(" ");
 }
 
 void viewTask(){
@@ -88,7 +89,6 @@ void addTask(){
 void removeTask(){
   // Show The Task
   showAllTask();
-  space();
 
   // Collect User Input
   int? input = checkTaskRange("Remove Task By Number : ");
@@ -98,6 +98,7 @@ void removeTask(){
   todo.remove(taskToRemove);
 
   print("Removed $taskToRemove");
+  print("");
 
   // Return To Menu
   menu();
@@ -155,7 +156,6 @@ void undoneTask(){
 void editTask(){
   // Show The Task
   showAllTask();
-  space();
 
   // Collect User Input
   int? input = checkTaskRange("Edit Task Title By Number: ");
@@ -172,6 +172,7 @@ void editTask(){
   // Map Keys can't be changed
   // Add New Task 
   todo.addEntries(newTask.entries);
+  print(" ");
 
   // Return to Menu
   menu();
@@ -205,8 +206,7 @@ int checkTaskRange(String message){
       }
       return userInput;
     }catch (FormatException){
-      print("Invalid Input, Please Try Again");
-      space();
+      print("Invalid Input, Please Try Again \n");
       continue;
     }
   }
