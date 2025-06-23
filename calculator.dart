@@ -2,6 +2,21 @@ import 'dart:io';
 
 double savedNum = 0; 
 
+String returnMessage(){
+  String message = 
+"""
+Basic Calculator App
+____________________
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Clear Saved Numbers
+6. Exit
+""";
+  return message;
+}
+
 void main(){
   while(true){
     // Print Message from Function
@@ -128,19 +143,4 @@ double checkDoubleInput({String msg = "Please enter a number : "}){
       print("Invalid Input, please try again \n");
     }
   }
-}
-
-String returnMessage(){
-  String message = 
-"""
-Basic Calculator App
-____________________
-1. Addition
-2. Subtraction
-3. Multiplication
-4. Division
-5. Clear Saved Numbers
-6. Exit
-""";
-  return message;
 }
