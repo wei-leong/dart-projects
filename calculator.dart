@@ -1,10 +1,9 @@
 import 'dart:io';
 
-double savedNum = 0; 
+double savedNum = 0;
 
-String returnMessage(){
-  String message = 
-"""
+String returnMessage() {
+  String message = """
 Basic Calculator App
 ____________________
 1. Addition
@@ -18,15 +17,15 @@ ____________________
   return message;
 }
 
-void main(){
-  while(true){
+void main() {
+  while (true) {
     // Print Message from Function
-    String message = returnMessage(); 
+    String message = returnMessage();
     print(message);
 
     // Receive Input
     int userInput = checkNumInput();
-    switch (userInput){
+    switch (userInput) {
       case 1:
         addition();
         break;
@@ -53,122 +52,129 @@ void main(){
   }
 }
 
-void addition(){
-  if(savedNum == 0){
-    double firstValue = checkDoubleInput(msg:"\nPlease enter 1st Value : ");
-    double secondValue = checkDoubleInput(msg:"\nPlease enter 2nd Value : ");
+void addition() {
+  if (savedNum == 0) {
+    double firstValue = checkDoubleInput(msg: "\nPlease enter 1st Value : ");
+    double secondValue = checkDoubleInput(msg: "\nPlease enter 2nd Value : ");
 
     savedNum = firstValue + secondValue;
     print("\nAddition Value");
     print("$firstValue + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
-  }else{
+  } else {
     double pastSaveState = savedNum;
-    double secondValue = checkDoubleInput(msg:"\n" + "$savedNum + ");
+    double secondValue = checkDoubleInput(msg: "\n" + "$savedNum + ");
     savedNum += secondValue;
     print("\nAddition Value");
-    print("$pastSaveState + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+    print(
+      "$pastSaveState + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n",
+    );
   }
 }
 
-void subtraction(){
-  if(savedNum == 0){
-    double firstValue = checkDoubleInput(msg:"\nPlease enter 1st Value : ");
-    double secondValue = checkDoubleInput(msg:"\nPlease enter 2nd Value : ");
+void subtraction() {
+  if (savedNum == 0) {
+    double firstValue = checkDoubleInput(msg: "\nPlease enter 1st Value : ");
+    double secondValue = checkDoubleInput(msg: "\nPlease enter 2nd Value : ");
 
     savedNum = firstValue - secondValue;
     print("\nSubtraction Value");
     print("$firstValue + $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
-  }else{
+  } else {
     double pastSaveState = savedNum;
-    double secondValue = checkDoubleInput(msg:"\n" + "$savedNum - ");
+    double secondValue = checkDoubleInput(msg: "\n" + "$savedNum - ");
     savedNum -= secondValue;
     print("\nSubtraction Value");
-    print("$pastSaveState - $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+    print(
+      "$pastSaveState - $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n",
+    );
   }
 }
 
-void multiplication(){
-  if(savedNum == 0){
-    double firstValue = checkDoubleInput(msg:"\nPlease enter 1st Value : ");
-    double secondValue = checkDoubleInput(msg:"\nPlease enter 2nd Value : ");
+void multiplication() {
+  if (savedNum == 0) {
+    double firstValue = checkDoubleInput(msg: "\nPlease enter 1st Value : ");
+    double secondValue = checkDoubleInput(msg: "\nPlease enter 2nd Value : ");
 
     savedNum = firstValue * secondValue;
     print("\nMultiplication Value");
     print("$firstValue x $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
-  }else{
+  } else {
     double pastSaveState = savedNum;
-    double secondValue = checkDoubleInput(msg:"\n" + "$savedNum x ");
+    double secondValue = checkDoubleInput(msg: "\n" + "$savedNum x ");
     savedNum *= secondValue;
     print("\nMultiplication Value");
-    print("$pastSaveState x $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+    print(
+      "$pastSaveState x $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n",
+    );
   }
 }
 
-void division(){
-  if(savedNum == 0){
-    double firstValue = checkDoubleInput(msg:"\nPlease enter 1st Value : ");
-    double secondValue = checkDoubleInput(msg:"\nPlease enter 2nd Value : ");
+void division() {
+  if (savedNum == 0) {
+    double firstValue = checkDoubleInput(msg: "\nPlease enter 1st Value : ");
+    double secondValue = checkDoubleInput(msg: "\nPlease enter 2nd Value : ");
 
     savedNum = firstValue / secondValue;
     print("\nDivision Value");
     print("$firstValue / $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
-  }else{
+  } else {
     double pastSaveState = savedNum;
-    double secondValue = checkDoubleInput(msg:"\n" + "$savedNum / ");
+    double secondValue = checkDoubleInput(msg: "\n" + "$savedNum / ");
     savedNum *= secondValue;
     print("\nMultiplication Value");
-    print("$pastSaveState / $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n");
+    print(
+      "$pastSaveState / $secondValue = ${savedNum.toStringAsFixed(2)}" + "\n",
+    );
   }
 }
 
-void multipleCalculate(){
-  
-  if(savedNum == 0){
+void multipleCalculate() {
+  if (savedNum == 0) {
     String input = checkUserInput();
     print(input);
-  }else{
-    
-  }
+  } else {}
 }
 
-void clearSavedNumber(){
+void clearSavedNumber() {
   savedNum = 0;
 }
 
-String checkUserInput({String msg = "Please enter a number : "}){
-  final pattern = RegExp(r'^[0-9+\-*/ ]+$'); 
-  while(true){
+String checkUserInput({String msg = "Please enter a number : "}) {
+  final pattern = RegExp(r'^[0-9+\-*/ ]+$');
+  while (true) {
     stdout.write("Enter a list of Number to Calculate : ");
     String input = stdin.readLineSync()!;
-    if(!pattern.hasMatch(input)){
-      print("Include only numbers and operators ( + , - , * , / ), please try again\n");
+    if (!pattern.hasMatch(input)) {
+      print(
+        "Include only numbers and operators ( + , - , * , / ), please try again\n",
+      );
       continue;
-    }else{
+    } else {
       String cleanedInput = input.replaceAll(" ", "");
       return cleanedInput;
     }
   }
 }
 
-int checkNumInput({String msg = "Please enter a number : "}){
-  while(true){
+int checkNumInput({String msg = "Please enter a number : "}) {
+  while (true) {
     stdout.write(msg);
     int? userInput = int.tryParse(stdin.readLineSync()!);
-    if(userInput != null){
+    if (userInput != null) {
       return userInput;
-    }else{
+    } else {
       print("Invalid Input, please try again \n");
     }
   }
 }
 
-double checkDoubleInput({String msg = "Please enter a number : "}){
-  while(true){
+double checkDoubleInput({String msg = "Please enter a number : "}) {
+  while (true) {
     stdout.write(msg);
     double? userInput = double.tryParse(stdin.readLineSync()!);
-    if(userInput != null){
+    if (userInput != null) {
       return userInput;
-    }else{
+    } else {
       print("Invalid Input, please try again \n");
     }
   }
