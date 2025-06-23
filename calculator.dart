@@ -12,7 +12,8 @@ ____________________
 3. Multiplication
 4. Division
 5. Clear Saved Numbers
-6. Exit
+6. Multiple Calculation
+7. Exit
 """;
   return message;
 }
@@ -42,6 +43,8 @@ void main(){
         clearSavedNumber();
         break;
       case 6:
+        break;
+      case 7:
         return;
       default:
         print("Invalid Range, Please Try Again \n");
