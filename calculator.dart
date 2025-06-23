@@ -43,6 +43,7 @@ void main(){
         clearSavedNumber();
         break;
       case 6:
+        multipleCalculate();
         break;
       case 7:
         return;
@@ -120,8 +121,33 @@ void division(){
   }
 }
 
+void multipleCalculate(){
+  
+  if(savedNum == 0){
+    String input = checkUserInput();
+    print(input);
+  }else{
+    
+  }
+}
+
 void clearSavedNumber(){
   savedNum = 0;
+}
+
+String checkUserInput({String msg = "Please enter a number : "}){
+  final pattern = RegExp(r'^[0-9+\-*/ ]+$'); 
+  while(true){
+    stdout.write("Enter a list of Number to Calculate : ");
+    String input = stdin.readLineSync()!;
+    if(!pattern.hasMatch(input)){
+      print("Include only numbers and operators ( + , - , * , / ), please try again\n");
+      continue;
+    }else{
+      String cleanedInput = input.replaceAll(" ", "");
+      return cleanedInput;
+    }
+  }
 }
 
 int checkNumInput({String msg = "Please enter a number : "}){
