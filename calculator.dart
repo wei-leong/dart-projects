@@ -129,9 +129,11 @@ void division() {
 }
 
 void multipleCalculate() {
+  List<String> numList;
   if (savedNum == 0) {
     String input = checkUserInput();
-    print(input);
+    numList = convertInput(input);
+    print(numList);
   } else {}
 }
 
@@ -154,6 +156,15 @@ String checkUserInput({String msg = "Please enter a number : "}) {
       return cleanedInput;
     }
   }
+}
+
+List<String> convertInput(String userInput) {
+  final pattern = RegExp(r'(\d+|\+|\-|\*|/)');
+  final List<String> process = pattern
+      .allMatches(userInput)
+      .map((items) => items.group(0)!)
+      .toList();
+  return process;
 }
 
 int checkNumInput({String msg = "Please enter a number : "}) {
