@@ -133,9 +133,15 @@ void multipleCalculate() {
   if (savedNum == 0) {
     String input = checkUserInput();
     numList = convertInput(input);
+    double total = evaluateList(numList);
+    savedNum = total;
     print("\nMulti Calculate Value");
-    print("$input = ${evaluateList(numList)}\n");
+    print("$input = $total\n");
   } else {
+    String input = checkUserInput();
+    numList = convertInput(input);
+    print("\nMulti Calculate Value");
+    print("$input + $savedNum = ${evaluateList(numList) + savedNum}\n");
   }
 }
 
