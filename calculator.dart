@@ -133,7 +133,7 @@ void multipleCalculate() {
   if (savedNum == 0) {
     String input = checkUserInput();
     numList = convertInput(input);
-    print(numList);
+    print("${evaluateList(numList)}");
   } else {}
 }
 
@@ -165,6 +165,38 @@ List<String> convertInput(String userInput) {
       .map((items) => items.group(0)!)
       .toList();
   return process;
+}
+
+double evaluateList(List<String> numberList){
+  // First Pass : Handle * and /
+  final firstPass = <String>[]; // Create a new list to store value after * and /
+  
+  for(int i = 0 ; i<numberList.length ; i++){
+    String item = numberList[i];
+    if(item == "*" || item == "/"){
+      double left = double.parse(firstPass.removeLast()); // Remove Last element so it shows 3 value ( left , symbol , right )
+      double right = double.parse(numberList[++i]);
+      double result = item == "*" ? left * right : left / right;
+      firstPass.add(result.toString());
+    }else{
+      firstPass.add(item);
+    }
+  }
+
+  // Second Pass : Handle + and -
+  double total = double.parse(firstPass[0]);
+  for(int i = 1 ; i<firstPass.length ; i+=2){
+    String symbol = firstPass[i];
+    double nextValue = double.parse(firstPass[i+1]);
+
+    if(symbol == "+"){
+      total+=nextValue;
+    }else{
+      total-=nextValue;
+    }
+  }
+
+  return total;
 }
 
 int checkNumInput({String msg = "Please enter a number : "}) {
