@@ -133,8 +133,10 @@ void multipleCalculate() {
   if (savedNum == 0) {
     String input = checkUserInput();
     numList = convertInput(input);
-    print("${evaluateList(numList)}");
-  } else {}
+    print("\nMulti Calculate Value");
+    print("$input = ${evaluateList(numList)}\n");
+  } else {
+  }
 }
 
 void clearSavedNumber() {
