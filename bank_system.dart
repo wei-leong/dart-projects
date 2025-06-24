@@ -32,6 +32,10 @@ class Bank{
     print("\n" + "Current Balance : $currentBalance");
   }
 
+  void showAccountBalance(){
+    print("Current Balance : $currentBalance");
+  }
+
   double checkDoubleInput({String msg = "Please enter a amount : "}) {
     while (true) {
       stdout.write(msg);
