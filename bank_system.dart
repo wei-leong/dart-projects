@@ -73,7 +73,7 @@ void login(){
     stdout.write("Password : ");
     String password = stdin.readLineSync()!;
 
-    if(name == john.accountName){
+    if(name.trim() == john.accountName){
       if(password == john.password){
         break;
       }else{
