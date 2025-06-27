@@ -23,14 +23,21 @@ class Bank{
     print("Current Balance : $currentBalance");
     double depositAmount = checkDoubleInput( msg : "Please enter a amount to Deposit : ");
     currentBalance += depositAmount;
-    print("\n" + "Current Balance : $currentBalance");
+    print("\n" + "Current Balance : $currentBalance" + "\n");
   }
 
   void withdrawal(){
-    print("Current Balance : $currentBalance");
-    double withdrawalAmount = checkDoubleInput( msg : "Please enter a amount to Withdrawal : ");
-    currentBalance -= withdrawalAmount;
-    print("\n" + "Current Balance : $currentBalance");
+    while(true){
+      print("Current Balance : $currentBalance");
+      double withdrawalAmount = checkDoubleInput( msg : "Please enter a amount to Withdrawal : ");
+      if (currentBalance - withdrawalAmount < 0 ){
+        print("Withdraw failed, please try again\n");
+      }else{
+        currentBalance -= withdrawalAmount;
+        print("\n" + "Current Balance : $currentBalance " + "\n");
+        break;
+      }
+    }
   }
 
   void showAccountBalance(){
