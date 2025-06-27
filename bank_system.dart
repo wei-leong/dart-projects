@@ -5,9 +5,11 @@
 // 4. Withdrawal
 
 import 'dart:io';
+Bank john = Bank("John Smith" , "12345678", 1900);
 
 void main(){
-  Bank john = new Bank("John Smith" , "12345678", 1900);
+  login();
+  menu();
 }
 class Bank{
   // Attributes
@@ -56,3 +58,54 @@ class Bank{
   }
 }
 
+void login(){
+  while(true){
+    print("Login\n_____\n");
+    stdout.write("Account Name : ");
+    String name = stdin.readLineSync()!;
+    stdout.write("Password : ");
+    String password = stdin.readLineSync()!;
+
+    if(name == john.accountName){
+      if(password == john.password){
+        break;
+      }else{
+        print("Invalid password, please try again\n");
+        continue;
+      }
+    }else{
+      print("Invalid Account Name, please try again\n");
+      continue;
+    }
+  }
+}
+
+void menu(){
+  while(true){
+    print("Menu\n____\n1. Deposit\n2. Withdrawal\n3. Display Account Information\n4. Logout");
+    stdout.write("Enter a Value : ");
+    int? input = int.tryParse(stdin.readLineSync()!);
+
+    if(input != null ){
+      switch(input){
+        case 1:
+          john.deposit();
+          break;
+        case 2:
+          john.withdrawal();
+          break;
+        case 3:
+          john.displayAccountInformation();
+          break;
+        case 4:
+          return;
+        default:
+          print("Please enter the correct value\n");
+          break;
+      }
+    }else{
+      print("Please enter only integer values\n");
+      continue;
+    }
+  }
+}
