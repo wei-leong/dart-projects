@@ -7,9 +7,8 @@
 import 'dart:io';
 
 void main(){
-  Bank john = new Bank("John Smith" , "12345678" , 11987.80);
+  Bank john = new Bank("John Smith" , "12345678", 1900);
 }
-
 class Bank{
   // Attributes
   String accountName;
@@ -33,6 +32,14 @@ class Bank{
   }
 
   void showAccountBalance(){
+    print("Current Balance : $currentBalance");
+  }
+
+  void displayAccountInformation(){
+    print("Account Information");
+    print("___________________");
+    print("Account Name : $accountName");
+    print("Account Password : $password");
     print("Current Balance : $currentBalance");
   }
 
