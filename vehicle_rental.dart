@@ -8,9 +8,12 @@ abstract class Vehicle{
   String? company;
   String? model;
   DateTime? year;
+  double get dailyRate;
+
+  Vehicle({this.company, this.model, this.year});
 
   double calculateRentalCost(int days){
-    return 0;
+    return dailyRate * days;
   }
 }
 
