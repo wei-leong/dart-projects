@@ -70,6 +70,7 @@ class Rectangle extends Shape{
         for(int j = 0 ; j < 10 ; j++){
           stdout.write("*");
         }
+        print("");
       }else{
         for(int j = 0 ; j < 10 ; j++){
           if(j == 0 || j == 9){
@@ -78,6 +79,7 @@ class Rectangle extends Shape{
             stdout.write(" ");
           }
         }
+        print("");
       }
     }
   }
