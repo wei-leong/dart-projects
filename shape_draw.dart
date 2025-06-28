@@ -13,7 +13,7 @@ void main(){
   circle.perimeter();
   circle.draw();
 
-  Rectangle rectangle = new Rectangle(10, 5);
+  Rectangle rectangle = new Rectangle(20, 60);
   rectangle.area();
   rectangle.perimeter();
   rectangle.draw();
@@ -65,15 +65,17 @@ class Rectangle extends Shape{
     print("Rectangle Area : ${2 * (length! * width!)}");
   }
   void draw(){
-    for(int i = 0 ; i < 5 ; i ++){
-      if( i == 0 || i == 4 ){
-        for(int j = 0 ; j < 10 ; j++){
+    int horizontalLimit = length!.toInt();
+    int verticalLimit = width!.toInt();
+    for(int i = 0 ; i < verticalLimit ; i ++){
+      if( i == 0 || i ==  verticalLimit - 1){
+        for(int j = 0 ; j < horizontalLimit ; j++){
           stdout.write("*");
         }
         print("");
       }else{
-        for(int j = 0 ; j < 10 ; j++){
-          if(j == 0 || j == 9){
+        for(int j = 0 ; j < horizontalLimit ; j++){
+          if(j == 0 || j ==  horizontalLimit - 1){
             stdout.write("*");
           }else{
             stdout.write(" ");
