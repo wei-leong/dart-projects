@@ -4,6 +4,17 @@
 // Build a RentalService class with a method rentVehicle(Vehicle v, int days) that prints rental + insurance if Insurable.
 // In main(), demonstrate renting a Car for 5 days, a Bike for 2 days, and a Truck for 3 days.
 
+class RentalService{
+  void rentVehicle(Vehicle v, int day){
+    double totalRentalCost = v.calculateRentalCost(day);
+    double totalInsuranceCost = (v as Insurable).insuranceCost(day);
+
+    print("Rental for Vehicle : $totalRentalCost");
+    print("Insurance for Vehicle : $totalInsuranceCost");
+    print("Total Amount Payable : ${totalRentalCost + totalInsuranceCost}");
+  }
+}
+
 abstract class Vehicle{
   String? company;
   String? model;
