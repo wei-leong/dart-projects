@@ -13,3 +13,9 @@ abstract class Vehicle{
     return 0;
   }
 }
+
+abstract class Insurable{
+  double insuranceCost(int days){
+    return 0;
+  }
+}
