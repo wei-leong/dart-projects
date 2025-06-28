@@ -34,3 +34,15 @@ class Car extends Vehicle implements Insurable{
     return 30.00 * days;
   }
 }
+
+class Van extends Vehicle implements Insurable{
+  double get dailyRate => 50;
+
+  Van({String? company, String? model, DateTime? year})
+      : super(company: company, model: model, year: year);
+
+  @override
+  double insuranceCost(int days) {
+    return 50.00 * days;
+  }
+}
