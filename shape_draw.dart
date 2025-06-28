@@ -39,3 +39,35 @@ class Circle extends Shape{
     print("      *        ");
   }
 }
+
+class Rectangle extends Shape{
+  double? width;
+  double? length;
+
+  Rectangle(this.width,this.length);
+
+  @override
+  void area(){
+    print("Rectangle Area : ${width! * length!}");
+  }
+  void perimeter(){
+    print("Rectangle Area : ${2 * (length! * width!)}");
+  }
+  void draw(){
+    for(int i = 0 ; i < 5 ; i ++){
+      if( i == 0 || i == 4 ){
+        for(int j = 0 ; j < 10 ; j++){
+          stdout.write("*");
+        }
+      }else{
+        for(int j = 0 ; j < 10 ; j++){
+          if(j == 0 || j == 9){
+            stdout.write("*");
+          }else{
+            stdout.write(" ");
+          }
+        }
+      }
+    }
+  }
+}
