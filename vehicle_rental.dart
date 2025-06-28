@@ -4,6 +4,18 @@
 // Build a RentalService class with a method rentVehicle(Vehicle v, int days) that prints rental + insurance if Insurable.
 // In main(), demonstrate renting a Car for 5 days, a Bike for 2 days, and a Truck for 3 days.
 
+void main(){
+  print("\nCar Rental\n");
+  Car civic = new Car(company: "Honda",model: "Civic",year: DateTime(2022));
+  RentalService rentalForCivic = new RentalService();
+  rentalForCivic.rentVehicle(civic, 10);
+
+  print("\nVan Rental\n");
+  Van alphard = new Van(company: "Toyota",model: "Alphard",year: DateTime(2021));
+  RentalService rentalForAlphard = new RentalService();
+  rentalForAlphard.rentVehicle(alphard, 5);
+}
+
 class RentalService{
   void rentVehicle(Vehicle v, int day){
     double totalRentalCost = v.calculateRentalCost(day);
