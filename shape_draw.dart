@@ -7,6 +7,17 @@
 import 'dart:io';
 import 'dart:math';
 
+void main(){
+  Circle circle = new Circle(10);
+  circle.area();
+  circle.perimeter();
+  circle.draw();
+
+  Rectangle rectangle = new Rectangle(10, 5);
+  rectangle.area();
+  rectangle.perimeter();
+  rectangle.draw();
+}
 abstract class Shape{
   void area(){
     print("The Area : ");
