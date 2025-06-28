@@ -22,3 +22,15 @@ abstract class Insurable{
     return 0;
   }
 }
+
+class Car extends Vehicle implements Insurable{
+  double get dailyRate => 50;
+
+  Car({String? company, String? model, DateTime? year})
+      : super(company: company, model: model, year: year);
+
+  @override
+  double insuranceCost(int days) {
+    return 30.00 * days;
+  }
+}
