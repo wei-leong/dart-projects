@@ -18,3 +18,24 @@ abstract class Shape{
     print("Drawing Shape...");
   }
 }
+
+class Circle extends Shape{
+  double? radius;
+
+  Circle(this.radius);
+
+  @override
+  void area(){
+    print("Circle Area : ${(radius! * radius!) * pi}");
+  }
+  void perimeter(){
+    print("Circle Area : ${2 * radius! * pi}");
+  }
+  void draw(){
+    print("      *     ");
+    print("  *       *  ");
+    print("*           * ");
+    print("  *       *    ");
+    print("      *        ");
+  }
+}
