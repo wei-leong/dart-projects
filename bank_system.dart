@@ -30,3 +30,11 @@ class Person{
     return value;
   }
 }
+
+class Customer extends Person{
+  double? _accountBalance;
+
+  Customer(String customerName,String customerPassword, this._accountBalance, {String role = "Customer"}) 
+      : super(customerName,customerPassword,role: role);
+  
+}
