@@ -36,5 +36,10 @@ class Customer extends Person{
 
   Customer(String customerName,String customerPassword, this._accountBalance, {String role = "Customer"}) 
       : super(customerName,customerPassword,role: role);
-  
+
+}
+
+abstract class BankTransfer{
+  void deposit();
+  void withdrawal();
 }
