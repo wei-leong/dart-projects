@@ -12,6 +12,9 @@ class Person{
   String? _accountPassword;
   String role = "";
 
+  // Person's constructor to let subclasses call super(...)
+  Person(this._accountName, this._accountPassword, {this.role = ''});
+
   void displayUserDetails(){
     print("User Settings");
     print("Account Name : $_accountName");
