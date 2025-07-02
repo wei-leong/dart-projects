@@ -4,6 +4,8 @@
 // 3. Deposit
 // 4. Withdrawal
 
+import 'dart:io';
+
 void main(){
 }
 
@@ -31,12 +33,33 @@ class Person{
   }
 }
 
-class Customer extends Person{
-  double? _accountBalance;
+class Customer extends Person implements BankTransfer{
+  double _accountBalance = 0;
 
-  Customer(String customerName,String customerPassword, this._accountBalance, {String role = "Customer"}) 
+  Customer(String customerName,String customerPassword, this._accountBalance,{String role = "Customer"}) 
       : super(customerName,customerPassword,role: role);
 
+  @override
+  void deposit(){
+    double depositAmount = inputValidate("Deposit");
+    _accountBalance += depositAmount;
+  }
+  void withdrawal(){
+
+  }
+
+  double inputValidate(String actions){
+    while(true){
+      stdout.write("Enter The Amount You Wanted to $actions : ");
+      double? amount = double.tryParse(stdin.readLineSync()!);
+
+      if(amount != null){
+        return amount;
+      }else{
+        print("Please enter amount only.");
+      }
+    }
+  }
 }
 
 abstract class BankTransfer{
