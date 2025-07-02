@@ -6,3 +6,24 @@
 
 void main(){
 }
+
+class Person{
+  String? _accountName;
+  String? _accountPassword;
+  String role = "";
+
+  void displayUserDetails(){
+    print("User Settings");
+    print("Account Name : $_accountName");
+    print("User Role : $role");
+    print("Account Password : ${returnHiddenPassword()}");
+  }
+
+  String returnHiddenPassword(){
+    String value = "";
+    for(int i = 0 ; i < _accountPassword!.length ; i++){
+      value = value + "*";
+    }
+    return value;
+  }
+}
