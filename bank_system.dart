@@ -45,7 +45,16 @@ class Customer extends Person implements BankTransfer{
     _accountBalance += depositAmount;
   }
   void withdrawal(){
-
+    while(true){
+      double withdrawalAmount = inputValidate("Withdrawal ( Balance $_accountBalance ): ");
+      if(withdrawalAmount>_accountBalance){
+        print("Amount Withdrawal Exceeds Account Balance, Please Try Again");
+        continue;
+      }else{
+        print("Amount $withdrawalAmount successfully withdraw");
+        break;
+      }
+    }
   }
 
   double inputValidate(String actions){
