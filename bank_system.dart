@@ -41,7 +41,7 @@ class Customer extends Person implements BankTransfer{
 
   @override
   void deposit(){
-    double depositAmount = inputValidate("Deposit");
+    double depositAmount = inputValidate("Deposit ( Balance $_accountBalance ): ");
     _accountBalance += depositAmount;
   }
   void withdrawal(){
