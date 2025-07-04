@@ -13,6 +13,22 @@ List<Customer> customerList = [
 ];
 
 void main(){
+  while(true){
+    print("Bank System Login");
+    stdout.write("Account Name : ");
+    String name = stdin.readLineSync()!;
+    stdout.write("Account Password : ");
+    String password = stdin.readLineSync()!;
+
+    BankLogin login = BankLogin(name, password);
+    bool loginValidated = login.validateUser();
+    if(loginValidated == true){
+      print("Entering System");
+      return;
+    }else{
+      print("Login Failed\n");
+    }
+  }
 }
 
 class BankLogin{
