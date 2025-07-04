@@ -15,6 +15,22 @@ List<Customer> customerList = [
 void main(){
 }
 
+class BankLogin{
+  String? accountName;
+  String? accountPassword;
+
+  BankLogin(this.accountName,this.accountPassword);
+
+  bool validateUser(){
+    for(Customer i in customerList){
+      if(accountName == i._accountName && accountPassword == i._accountPassword){
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
 class Person{
   String? _accountName;
   String? _accountPassword;
