@@ -6,6 +6,12 @@
 
 import 'dart:io';
 
+List<Customer> customerList = [
+  Customer("John Smith", "12345678", 1000),
+  Customer("Johnny Silverhand", "samurai", 10),
+  Customer("V", "1a2b3c4d5e", 100000),
+];
+
 void main(){
 }
 
