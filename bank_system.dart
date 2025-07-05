@@ -115,6 +115,7 @@ class Customer extends Person implements BankTransfer{
         continue;
       }else{
         print("Amount $withdrawalAmount successfully withdraw");
+        _accountBalance -= withdrawalAmount;
         break;
       }
     }
