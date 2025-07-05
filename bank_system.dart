@@ -1,118 +1,141 @@
 // Create a banking system using Class 
-// 1. Login
+// 1. Login ( Customer / Manager )
 // 2. Display Account Information
 // 3. Deposit
 // 4. Withdrawal
 
 import 'dart:io';
-Bank john = Bank("John Smith" , "12345678", 1900);
+
+List<Customer> customerList = [
+  Customer("John Smith", "12345678", 1000),
+  Customer("Johnny Silverhand", "samurai", 10),
+  Customer("V", "1a2b3c4d5e", 100000),
+];
 
 void main(){
-  login();
-  menu();
-}
-class Bank{
-  // Attributes
-  String accountName;
-  String password;
-  double currentBalance;
-
-  Bank(this.accountName,this.password,this.currentBalance);
-
-  void deposit(){
-    print("Current Balance : $currentBalance");
-    double depositAmount = checkDoubleInput( msg : "Please enter a amount to Deposit : ");
-    currentBalance += depositAmount;
-    print("\n" + "Current Balance : $currentBalance" + "\n");
-  }
-
-  void withdrawal(){
-    while(true){
-      print("Current Balance : $currentBalance");
-      double withdrawalAmount = checkDoubleInput( msg : "Please enter a amount to Withdrawal : ");
-      if (currentBalance - withdrawalAmount < 0 ){
-        print("Withdraw failed, please try again\n");
-      }else{
-        currentBalance -= withdrawalAmount;
-        print("\n" + "Current Balance : $currentBalance " + "\n");
-        break;
-      }
-    }
-  }
-
-  void showAccountBalance(){
-    print("Current Balance : $currentBalance");
-  }
-
-  void displayAccountInformation(){
-    print("Account Information");
-    print("___________________");
-    print("Account Name : $accountName");
-    print("Account Password : $password");
-    print("Current Balance : $currentBalance");
-  }
-
-  double checkDoubleInput({String msg = "Please enter a amount : "}) {
-    while (true) {
-      stdout.write(msg);
-      double? userInput = double.tryParse(stdin.readLineSync()!);
-      if (userInput != null) {
-        return userInput;
-      } else {
-        print("Invalid Input, please try again \n");
-      }
-    }
-  }
-}
-
-void login(){
+  // ! Try adding name edit feature like when the user wrongly entered password, it saves the name, require password only
   while(true){
-    print("Login\n_____\n");
+    print("Bank System Login");
     stdout.write("Account Name : ");
     String name = stdin.readLineSync()!;
-    stdout.write("Password : ");
+    stdout.write("Account Password : ");
     String password = stdin.readLineSync()!;
-
-    if(name.trim() == john.accountName){
-      if(password == john.password){
-        break;
-      }else{
-        print("Invalid password, please try again\n");
-        continue;
-      }
+    BankLogin login = BankLogin(name, password);
+    Customer? loginCustomer = login.validateUser();
+    if(loginCustomer != null){
+      print("Entering System");
+      menu(loginCustomer);
+      return;
     }else{
-      print("Invalid Account Name, please try again\n");
-      continue;
+      print("Login Failed\n");
     }
   }
 }
 
-void menu(){
+void menu(Customer loginCustomer){
   while(true){
-    print("Menu\n____\n1. Deposit\n2. Withdrawal\n3. Display Account Information\n4. Logout");
-    stdout.write("Enter a Value : ");
+    print("Bank Menu");
+    print("1. Deposit");
+    print("2. Withdrawal");
+    stdout.write("Enter Menu Item : ");
     int? input = int.tryParse(stdin.readLineSync()!);
 
-    if(input != null ){
-      switch(input){
-        case 1:
-          john.deposit();
-          break;
-        case 2:
-          john.withdrawal();
-          break;
-        case 3:
-          john.displayAccountInformation();
-          break;
-        case 4:
+    if(input != null){
+        if( input == 1){
+          loginCustomer.deposit();
+          menu(loginCustomer);
           return;
-        default:
-          print("Please enter the correct value\n");
-          break;
-      }
+        }else if(input == 2){
+          loginCustomer.withdrawal();
+          menu(loginCustomer);
+          return;
+        }
     }else{
-      print("Please enter only integer values\n");
-      continue;
+      print("Please select the correct menu item");
     }
   }
+}
+
+class BankLogin{
+  String? accountName;
+  String? accountPassword;
+
+  BankLogin(this.accountName,this.accountPassword);
+
+  Customer? validateUser(){
+    for(Customer customer in customerList){
+      if(accountName == customer._accountName && accountPassword == customer._accountPassword){
+        return customer;
+      }
+    }
+    return null;
+  }
+}
+
+class Person{
+  String? _accountName;
+  String? _accountPassword;
+  String role = "";
+
+  // Person's constructor to let subclasses call super(...)
+  Person(this._accountName, this._accountPassword, {this.role = ''});
+
+  void displayUserDetails(){
+    print("User Settings");
+    print("Account Name : $_accountName");
+    print("User Role : $role");
+    print("Account Password : ${returnHiddenPassword()}");
+  }
+
+  String returnHiddenPassword(){
+    String value = "";
+    for(int i = 0 ; i < _accountPassword!.length ; i++){
+      value = value + "*";
+    }
+    return value;
+  }
+}
+
+class Customer extends Person implements BankTransfer{
+  double _accountBalance = 0;
+
+  Customer(String customerName,String customerPassword, this._accountBalance,{String role = "Customer"}) 
+      : super(customerName,customerPassword,role: role);
+
+  @override
+  void deposit(){
+    double depositAmount = inputValidate("Deposit ( Balance $_accountBalance ): ");
+    _accountBalance += depositAmount;
+  }
+  void withdrawal(){
+    while(true){
+      double withdrawalAmount = inputValidate("Withdrawal ( Balance $_accountBalance ): ");
+      if(withdrawalAmount>_accountBalance){
+        print("Amount Withdrawal Exceeds Account Balance, Please Try Again");
+        continue;
+      }else{
+        print("Amount $withdrawalAmount successfully withdraw");
+        _accountBalance -= withdrawalAmount;
+        break;
+      }
+    }
+  }
+
+  double inputValidate(String actions){
+    while(true){
+      stdout.write("Enter The Amount You Wanted to $actions : ");
+      double? amount = double.tryParse(stdin.readLineSync()!);
+
+      if(amount != null){
+        return amount;
+      }else{
+        print("Please enter amount only.");
+      }
+    }
+  }
+}
+
+abstract class BankTransfer{
+  void deposit();
+  void withdrawal();
 }
