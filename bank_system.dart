@@ -13,20 +13,45 @@ List<Customer> customerList = [
 ];
 
 void main(){
+  // ! Try adding name edit feature like when the user wrongly entered password, it saves the name, require password only
   while(true){
     print("Bank System Login");
     stdout.write("Account Name : ");
     String name = stdin.readLineSync()!;
     stdout.write("Account Password : ");
     String password = stdin.readLineSync()!;
-
     BankLogin login = BankLogin(name, password);
-    bool loginValidated = login.validateUser();
-    if(loginValidated == true){
+    Customer? loginCustomer = login.validateUser();
+    if(loginCustomer != null){
       print("Entering System");
+      menu(loginCustomer);
       return;
     }else{
       print("Login Failed\n");
+    }
+  }
+}
+
+void menu(Customer loginCustomer){
+  while(true){
+    print("Bank Menu");
+    print("1. Deposit");
+    print("2. Withdrawal");
+    stdout.write("Enter Menu Item : ");
+    int? input = int.tryParse(stdin.readLineSync()!);
+
+    if(input != null){
+        if( input == 1){
+          loginCustomer.deposit();
+          menu(loginCustomer);
+          return;
+        }else if(input == 2){
+          loginCustomer.withdrawal();
+          menu(loginCustomer);
+          return;
+        }
+    }else{
+      print("Please select the correct menu item");
     }
   }
 }
@@ -37,13 +62,13 @@ class BankLogin{
 
   BankLogin(this.accountName,this.accountPassword);
 
-  bool validateUser(){
-    for(Customer i in customerList){
-      if(accountName == i._accountName && accountPassword == i._accountPassword){
-        return true;
+  Customer? validateUser(){
+    for(Customer customer in customerList){
+      if(accountName == customer._accountName && accountPassword == customer._accountPassword){
+        return customer;
       }
     }
-    return false;
+    return null;
   }
 }
 
